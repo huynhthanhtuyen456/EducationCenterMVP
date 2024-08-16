@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationCenter", "EducationCenter.csproj", "{C30A563F-0E94-4F64-858C-4073B33C05BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "..\DataLayer\DataLayer.csproj", "{00191AE5-7140-4FDD-BBD9-E2621787C218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "..\Helper\Helper.csproj", "{C9109DF6-F67D-4309-B0F5-4963941FCC10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C30A563F-0E94-4F64-858C-4073B33C05BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30A563F-0E94-4F64-858C-4073B33C05BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30A563F-0E94-4F64-858C-4073B33C05BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30A563F-0E94-4F64-858C-4073B33C05BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00191AE5-7140-4FDD-BBD9-E2621787C218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00191AE5-7140-4FDD-BBD9-E2621787C218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00191AE5-7140-4FDD-BBD9-E2621787C218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00191AE5-7140-4FDD-BBD9-E2621787C218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9109DF6-F67D-4309-B0F5-4963941FCC10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9109DF6-F67D-4309-B0F5-4963941FCC10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9109DF6-F67D-4309-B0F5-4963941FCC10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9109DF6-F67D-4309-B0F5-4963941FCC10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BB52C4B-295D-4062-8D11-10E77512D1F0}
+	EndGlobalSection
+EndGlobal
