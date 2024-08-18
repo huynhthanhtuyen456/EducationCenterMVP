@@ -75,10 +75,10 @@ namespace EducationCenter.Presenters
                 Id = view.TeacherId,
                 FirstName = view.TeacherFirstName,
                 LastName = view.TeacherLastName,
-                DateOfBirth = view.TeacherDateOfBirth,
+                DateOfBirth = DateOnly.FromDateTime(view.TeacherDateOfBirth),
                 Email = view.TeacherEmail,
                 RoleId = 1,
-                SalaryId = 1,
+                Salary = 1,
             };
             try
             {
@@ -127,7 +127,7 @@ namespace EducationCenter.Presenters
                 LoadAllTeacherList();
             }
             catch (Exception ex)
-            {
+            {   
                 view.IsSuccessfull = false;
                 view.Message = "An error ocurred, could not delete teacher";
             }

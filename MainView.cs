@@ -16,8 +16,17 @@ namespace EducationCenter
         {
             InitializeComponent();
             ShowTeacherViewBtn.Click += delegate { ShowTeacherView?.Invoke(this, EventArgs.Empty); };
+            ShowStudentViewBtn.Click += delegate { ShowStudentView?.Invoke(this, EventArgs.Empty); };
+            ShowSubjectViewBtn.Click += delegate { ShowSubjectView?.Invoke(this, EventArgs.Empty); };
         }
 
         public event EventHandler? ShowTeacherView;
+        public event EventHandler? ShowStudentView;
+        public event EventHandler? ShowSubjectView;
+
+        private void MainView_Load(object sender, EventArgs e)
+        {
+            ShowTeacherView?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

@@ -40,6 +40,13 @@
             SearchTeacherBtn = new Button();
             TchSearchValTxb = new TextBox();
             TeacherDGView = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            telephoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             teacherBindingSource = new BindingSource(components);
             TeacherDetailTabPage = new TabPage();
             TchCancelBtn = new Button();
@@ -67,15 +74,6 @@
             TchFirstNameLbl = new Label();
             TchLastNameTxb = new TextBox();
             TchFirstNameTxb = new TextBox();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            telephoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             TecherPanel.SuspendLayout();
             TeacherTabControl.SuspendLayout();
             TeacherListTabPage.SuspendLayout();
@@ -101,6 +99,7 @@
             // 
             // TecherPanel
             // 
+            TecherPanel.BackColor = SystemColors.ActiveCaption;
             TecherPanel.Controls.Add(CloseTeacherFormBtn);
             TecherPanel.Controls.Add(TeacherLbl);
             TecherPanel.Dock = DockStyle.Top;
@@ -150,62 +149,127 @@
             // DeleteTeacherBtn
             // 
             DeleteTeacherBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            DeleteTeacherBtn.BackColor = Color.Red;
+            DeleteTeacherBtn.FlatAppearance.BorderSize = 0;
+            DeleteTeacherBtn.FlatStyle = FlatStyle.Flat;
+            DeleteTeacherBtn.ForeColor = Color.Black;
             DeleteTeacherBtn.Location = new Point(489, 93);
             DeleteTeacherBtn.Name = "DeleteTeacherBtn";
             DeleteTeacherBtn.Size = new Size(75, 23);
             DeleteTeacherBtn.TabIndex = 5;
             DeleteTeacherBtn.Text = "Delete";
-            DeleteTeacherBtn.UseVisualStyleBackColor = true;
+            DeleteTeacherBtn.UseVisualStyleBackColor = false;
             // 
             // EditTeacherBtn
             // 
             EditTeacherBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            EditTeacherBtn.BackColor = Color.Yellow;
+            EditTeacherBtn.Cursor = Cursors.Hand;
+            EditTeacherBtn.FlatAppearance.BorderSize = 0;
+            EditTeacherBtn.FlatStyle = FlatStyle.Flat;
             EditTeacherBtn.Location = new Point(489, 64);
             EditTeacherBtn.Name = "EditTeacherBtn";
             EditTeacherBtn.Size = new Size(75, 23);
             EditTeacherBtn.TabIndex = 4;
             EditTeacherBtn.Text = "Edit";
-            EditTeacherBtn.UseVisualStyleBackColor = true;
+            EditTeacherBtn.UseVisualStyleBackColor = false;
             // 
             // AddTeacherBtn
             // 
             AddTeacherBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            AddTeacherBtn.BackColor = Color.FromArgb(128, 255, 128);
+            AddTeacherBtn.Cursor = Cursors.Hand;
+            AddTeacherBtn.FlatAppearance.BorderSize = 0;
+            AddTeacherBtn.FlatStyle = FlatStyle.Flat;
             AddTeacherBtn.Location = new Point(489, 35);
             AddTeacherBtn.Name = "AddTeacherBtn";
             AddTeacherBtn.Size = new Size(75, 23);
             AddTeacherBtn.TabIndex = 3;
             AddTeacherBtn.Text = "Add";
-            AddTeacherBtn.UseVisualStyleBackColor = true;
+            AddTeacherBtn.UseVisualStyleBackColor = false;
             // 
             // SearchTeacherBtn
             // 
-            SearchTeacherBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            SearchTeacherBtn.Location = new Point(408, 6);
+            SearchTeacherBtn.BackColor = Color.FromArgb(255, 128, 0);
+            SearchTeacherBtn.Cursor = Cursors.Hand;
+            SearchTeacherBtn.FlatAppearance.BorderSize = 0;
+            SearchTeacherBtn.FlatStyle = FlatStyle.Flat;
+            SearchTeacherBtn.Location = new Point(252, 6);
             SearchTeacherBtn.Name = "SearchTeacherBtn";
             SearchTeacherBtn.Size = new Size(75, 23);
             SearchTeacherBtn.TabIndex = 2;
             SearchTeacherBtn.Text = "Search";
-            SearchTeacherBtn.UseVisualStyleBackColor = true;
+            SearchTeacherBtn.UseVisualStyleBackColor = false;
             // 
             // TchSearchValTxb
             // 
-            TchSearchValTxb.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TchSearchValTxb.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             TchSearchValTxb.Location = new Point(3, 6);
             TchSearchValTxb.Name = "TchSearchValTxb";
-            TchSearchValTxb.Size = new Size(399, 23);
+            TchSearchValTxb.Size = new Size(243, 23);
             TchSearchValTxb.TabIndex = 1;
             // 
             // TeacherDGView
             // 
+            TeacherDGView.AllowUserToAddRows = false;
+            TeacherDGView.AllowUserToDeleteRows = false;
+            TeacherDGView.AllowUserToOrderColumns = true;
             TeacherDGView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TeacherDGView.AutoGenerateColumns = false;
+            TeacherDGView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TeacherDGView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TeacherDGView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TeacherDGView.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, telephoneDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn });
+            TeacherDGView.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, telephoneDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn });
             TeacherDGView.DataSource = teacherBindingSource;
             TeacherDGView.Location = new Point(3, 35);
             TeacherDGView.Name = "TeacherDGView";
+            TeacherDGView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             TeacherDGView.Size = new Size(480, 303);
             TeacherDGView.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email Address";
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // telephoneDataGridViewTextBoxColumn
+            // 
+            telephoneDataGridViewTextBoxColumn.DataPropertyName = "Telephone";
+            telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
+            telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date Of Birth";
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
             // 
             // teacherBindingSource
             // 
@@ -470,60 +534,6 @@
             TchFirstNameTxb.Size = new Size(100, 23);
             TchFirstNameTxb.TabIndex = 0;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "ID";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date Of Birth";
-            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
-            genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            // 
-            // telephoneDataGridViewTextBoxColumn
-            // 
-            telephoneDataGridViewTextBoxColumn.DataPropertyName = "Telephone";
-            telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
-            telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            emailDataGridViewTextBoxColumn.HeaderText = "Email Address";
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // roleDataGridViewTextBoxColumn
-            // 
-            roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
-            roleDataGridViewTextBoxColumn.HeaderText = "Role";
-            roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-            // 
             // TeacherView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -593,13 +603,11 @@
         private BindingSource teacherBindingSource;
         private Label CloseTeacherFormBtn;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
     }
 }

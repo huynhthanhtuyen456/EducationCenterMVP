@@ -30,16 +30,24 @@
         {
             ShowTeacherViewBtn = new Button();
             panel1 = new Panel();
+            LogoutBtn = new Button();
+            ShowSubjectViewBtn = new Button();
+            ShowStudentViewBtn = new Button();
             panel2 = new Panel();
             EducationCenterLbl = new Label();
-            ShowStudentViewBtn = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // ShowTeacherViewBtn
             // 
-            ShowTeacherViewBtn.BackColor = SystemColors.Control;
+            ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
+            ShowTeacherViewBtn.Cursor = Cursors.Hand;
+            ShowTeacherViewBtn.FlatAppearance.BorderSize = 0;
+            ShowTeacherViewBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
+            ShowTeacherViewBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
+            ShowTeacherViewBtn.FlatStyle = FlatStyle.Flat;
+            ShowTeacherViewBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ShowTeacherViewBtn.Location = new Point(3, 51);
             ShowTeacherViewBtn.Name = "ShowTeacherViewBtn";
             ShowTeacherViewBtn.Size = new Size(194, 23);
@@ -49,6 +57,9 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(LogoutBtn);
+            panel1.Controls.Add(ShowSubjectViewBtn);
             panel1.Controls.Add(ShowStudentViewBtn);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(ShowTeacherViewBtn);
@@ -57,6 +68,52 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(200, 483);
             panel1.TabIndex = 2;
+            // 
+            // LogoutBtn
+            // 
+            LogoutBtn.Cursor = Cursors.Hand;
+            LogoutBtn.FlatAppearance.BorderSize = 0;
+            LogoutBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
+            LogoutBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
+            LogoutBtn.FlatStyle = FlatStyle.Flat;
+            LogoutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LogoutBtn.Location = new Point(3, 448);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.Size = new Size(194, 23);
+            LogoutBtn.TabIndex = 5;
+            LogoutBtn.Text = "Log Out";
+            LogoutBtn.UseVisualStyleBackColor = true;
+            // 
+            // ShowSubjectViewBtn
+            // 
+            ShowSubjectViewBtn.Cursor = Cursors.Hand;
+            ShowSubjectViewBtn.FlatAppearance.BorderSize = 0;
+            ShowSubjectViewBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
+            ShowSubjectViewBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
+            ShowSubjectViewBtn.FlatStyle = FlatStyle.Flat;
+            ShowSubjectViewBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ShowSubjectViewBtn.Location = new Point(3, 109);
+            ShowSubjectViewBtn.Name = "ShowSubjectViewBtn";
+            ShowSubjectViewBtn.Size = new Size(194, 23);
+            ShowSubjectViewBtn.TabIndex = 4;
+            ShowSubjectViewBtn.Text = "Subject";
+            ShowSubjectViewBtn.UseVisualStyleBackColor = true;
+            // 
+            // ShowStudentViewBtn
+            // 
+            ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
+            ShowStudentViewBtn.Cursor = Cursors.Hand;
+            ShowStudentViewBtn.FlatAppearance.BorderSize = 0;
+            ShowStudentViewBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
+            ShowStudentViewBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
+            ShowStudentViewBtn.FlatStyle = FlatStyle.Flat;
+            ShowStudentViewBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ShowStudentViewBtn.Location = new Point(3, 80);
+            ShowStudentViewBtn.Name = "ShowStudentViewBtn";
+            ShowStudentViewBtn.Size = new Size(194, 23);
+            ShowStudentViewBtn.TabIndex = 3;
+            ShowStudentViewBtn.Text = "Student";
+            ShowStudentViewBtn.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -77,16 +134,6 @@
             EducationCenterLbl.TabIndex = 0;
             EducationCenterLbl.Text = "Education Center";
             // 
-            // ShowStudentViewBtn
-            // 
-            ShowStudentViewBtn.BackColor = SystemColors.Control;
-            ShowStudentViewBtn.Location = new Point(3, 80);
-            ShowStudentViewBtn.Name = "ShowStudentViewBtn";
-            ShowStudentViewBtn.Size = new Size(194, 23);
-            ShowStudentViewBtn.TabIndex = 3;
-            ShowStudentViewBtn.Text = "Student";
-            ShowStudentViewBtn.UseVisualStyleBackColor = false;
-            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -95,7 +142,8 @@
             Controls.Add(panel1);
             IsMdiContainer = true;
             Name = "MainView";
-            Text = "MainView";
+            Text = "Education Center";
+            Load += MainView_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -109,5 +157,7 @@
         private Panel panel2;
         private Label EducationCenterLbl;
         private Button ShowStudentViewBtn;
+        private Button ShowSubjectViewBtn;
+        private Button LogoutBtn;
     }
 }
