@@ -34,6 +34,7 @@
             CloseTeacherFormBtn = new Label();
             TeacherTabControl = new TabControl();
             TeacherListTabPage = new TabPage();
+            AssignSubjectBtn = new Button();
             DeleteTeacherBtn = new Button();
             EditTeacherBtn = new Button();
             AddTeacherBtn = new Button();
@@ -56,24 +57,27 @@
             dataGridView3 = new DataGridView();
             dataGridView2 = new DataGridView();
             TeachingInfoGroupBox = new GroupBox();
-            comboBox1 = new ComboBox();
-            TchSalaryType = new Label();
-            textBox4 = new TextBox();
+            TeacherTelephoneTxb = new TextBox();
+            TelephoneLbl = new Label();
+            TeacherSalaryTxb = new TextBox();
             TchSalaryLbl = new Label();
+            TchEmailLbl = new Label();
+            TchEmailTxb = new TextBox();
             PersonalInfiGroupBox = new GroupBox();
+            TeacherGenderCbox = new ComboBox();
+            GenderLbl = new Label();
             TchAgeTxb = new TextBox();
-            TchAgeLbl = new Label();
             TchDOBErrorMsgLbl = new Label();
             TchLastNameErrorMsgLbl = new Label();
+            TchAgeLbl = new Label();
             TchFirstNameErrorMsgLbl = new Label();
-            TchEmailTxb = new TextBox();
-            TchEmailLbl = new Label();
             TchDOBDatePicker = new DateTimePicker();
             TchDOBLbl = new Label();
             TchLastNameLbl = new Label();
             TchFirstNameLbl = new Label();
             TchLastNameTxb = new TextBox();
             TchFirstNameTxb = new TextBox();
+            AssignSubjectTabPage = new TabPage();
             TecherPanel.SuspendLayout();
             TeacherTabControl.SuspendLayout();
             TeacherListTabPage.SuspendLayout();
@@ -91,7 +95,7 @@
             TeacherLbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             TeacherLbl.AutoSize = true;
             TeacherLbl.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TeacherLbl.Location = new Point(224, 13);
+            TeacherLbl.Location = new Point(261, 13);
             TeacherLbl.Name = "TeacherLbl";
             TeacherLbl.Size = new Size(128, 37);
             TeacherLbl.TabIndex = 0;
@@ -105,7 +109,7 @@
             TecherPanel.Dock = DockStyle.Top;
             TecherPanel.Location = new Point(0, 0);
             TecherPanel.Name = "TecherPanel";
-            TecherPanel.Size = new Size(621, 69);
+            TecherPanel.Size = new Size(695, 69);
             TecherPanel.TabIndex = 1;
             // 
             // CloseTeacherFormBtn
@@ -113,7 +117,7 @@
             CloseTeacherFormBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             CloseTeacherFormBtn.AutoSize = true;
             CloseTeacherFormBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            CloseTeacherFormBtn.Location = new Point(591, 13);
+            CloseTeacherFormBtn.Location = new Point(665, 13);
             CloseTeacherFormBtn.Name = "CloseTeacherFormBtn";
             CloseTeacherFormBtn.Size = new Size(15, 15);
             CloseTeacherFormBtn.TabIndex = 1;
@@ -124,14 +128,16 @@
             TeacherTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TeacherTabControl.Controls.Add(TeacherListTabPage);
             TeacherTabControl.Controls.Add(TeacherDetailTabPage);
+            TeacherTabControl.Controls.Add(AssignSubjectTabPage);
             TeacherTabControl.Location = new Point(12, 97);
             TeacherTabControl.Name = "TeacherTabControl";
             TeacherTabControl.SelectedIndex = 0;
-            TeacherTabControl.Size = new Size(608, 369);
+            TeacherTabControl.Size = new Size(682, 392);
             TeacherTabControl.TabIndex = 2;
             // 
             // TeacherListTabPage
             // 
+            TeacherListTabPage.Controls.Add(AssignSubjectBtn);
             TeacherListTabPage.Controls.Add(DeleteTeacherBtn);
             TeacherListTabPage.Controls.Add(EditTeacherBtn);
             TeacherListTabPage.Controls.Add(AddTeacherBtn);
@@ -141,10 +147,26 @@
             TeacherListTabPage.Location = new Point(4, 24);
             TeacherListTabPage.Name = "TeacherListTabPage";
             TeacherListTabPage.Padding = new Padding(3);
-            TeacherListTabPage.Size = new Size(600, 341);
+            TeacherListTabPage.Size = new Size(674, 364);
             TeacherListTabPage.TabIndex = 0;
             TeacherListTabPage.Text = "Teacher List";
             TeacherListTabPage.UseVisualStyleBackColor = true;
+            // 
+            // AssignSubjectBtn
+            // 
+            AssignSubjectBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            AssignSubjectBtn.BackColor = Color.FromArgb(255, 128, 0);
+            AssignSubjectBtn.FlatAppearance.BorderSize = 0;
+            AssignSubjectBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
+            AssignSubjectBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
+            AssignSubjectBtn.FlatStyle = FlatStyle.Flat;
+            AssignSubjectBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AssignSubjectBtn.Location = new Point(489, 122);
+            AssignSubjectBtn.Name = "AssignSubjectBtn";
+            AssignSubjectBtn.Size = new Size(75, 44);
+            AssignSubjectBtn.TabIndex = 6;
+            AssignSubjectBtn.Text = "Assign Subject";
+            AssignSubjectBtn.UseVisualStyleBackColor = false;
             // 
             // DeleteTeacherBtn
             // 
@@ -224,7 +246,7 @@
             TeacherDGView.Location = new Point(3, 35);
             TeacherDGView.Name = "TeacherDGView";
             TeacherDGView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            TeacherDGView.Size = new Size(480, 303);
+            TeacherDGView.Size = new Size(480, 323);
             TeacherDGView.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -288,36 +310,46 @@
             TeacherDetailTabPage.Location = new Point(4, 24);
             TeacherDetailTabPage.Name = "TeacherDetailTabPage";
             TeacherDetailTabPage.Padding = new Padding(3);
-            TeacherDetailTabPage.Size = new Size(600, 341);
+            TeacherDetailTabPage.Size = new Size(674, 364);
             TeacherDetailTabPage.TabIndex = 1;
             TeacherDetailTabPage.Text = "Teacher Detail";
             TeacherDetailTabPage.UseVisualStyleBackColor = true;
             // 
             // TchCancelBtn
             // 
+            TchCancelBtn.BackColor = SystemColors.ActiveBorder;
+            TchCancelBtn.FlatAppearance.BorderSize = 0;
+            TchCancelBtn.FlatAppearance.MouseDownBackColor = SystemColors.Control;
+            TchCancelBtn.FlatAppearance.MouseOverBackColor = SystemColors.ControlDark;
+            TchCancelBtn.FlatStyle = FlatStyle.Flat;
             TchCancelBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TchCancelBtn.Location = new Point(87, 231);
+            TchCancelBtn.Location = new Point(87, 279);
             TchCancelBtn.Name = "TchCancelBtn";
             TchCancelBtn.Size = new Size(75, 23);
             TchCancelBtn.TabIndex = 7;
             TchCancelBtn.Text = "Cancel";
-            TchCancelBtn.UseVisualStyleBackColor = true;
+            TchCancelBtn.UseVisualStyleBackColor = false;
             // 
             // TchSaveBtn
             // 
+            TchSaveBtn.BackColor = SystemColors.ActiveCaption;
+            TchSaveBtn.FlatAppearance.BorderSize = 0;
+            TchSaveBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 192, 255);
+            TchSaveBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 128, 255);
+            TchSaveBtn.FlatStyle = FlatStyle.Flat;
             TchSaveBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TchSaveBtn.Location = new Point(6, 231);
+            TchSaveBtn.Location = new Point(6, 279);
             TchSaveBtn.Name = "TchSaveBtn";
             TchSaveBtn.Size = new Size(75, 23);
             TchSaveBtn.TabIndex = 6;
             TchSaveBtn.Text = "Save";
-            TchSaveBtn.UseVisualStyleBackColor = true;
+            TchSaveBtn.UseVisualStyleBackColor = false;
             // 
             // TeachingSubjectsLbl
             // 
             TeachingSubjectsLbl.AutoSize = true;
             TeachingSubjectsLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TeachingSubjectsLbl.Location = new Point(410, 163);
+            TeachingSubjectsLbl.Location = new Point(395, 183);
             TeachingSubjectsLbl.Name = "TeachingSubjectsLbl";
             TeachingSubjectsLbl.Size = new Size(106, 15);
             TeachingSubjectsLbl.TabIndex = 5;
@@ -327,7 +359,7 @@
             // 
             TaughtSubjects.AutoSize = true;
             TaughtSubjects.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TaughtSubjects.Location = new Point(421, 6);
+            TaughtSubjects.Location = new Point(395, 6);
             TaughtSubjects.Name = "TaughtSubjects";
             TaughtSubjects.Size = new Size(95, 15);
             TaughtSubjects.TabIndex = 4;
@@ -336,76 +368,94 @@
             // dataGridView3
             // 
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(522, 163);
+            dataGridView3.Location = new Point(395, 201);
             dataGridView3.Name = "dataGridView3";
-            dataGridView3.Size = new Size(240, 144);
+            dataGridView3.Size = new Size(272, 157);
             dataGridView3.TabIndex = 3;
             // 
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(522, 6);
+            dataGridView2.Location = new Point(395, 25);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(240, 150);
+            dataGridView2.Size = new Size(272, 155);
             dataGridView2.TabIndex = 2;
             // 
             // TeachingInfoGroupBox
             // 
-            TeachingInfoGroupBox.Controls.Add(comboBox1);
-            TeachingInfoGroupBox.Controls.Add(TchSalaryType);
-            TeachingInfoGroupBox.Controls.Add(textBox4);
+            TeachingInfoGroupBox.Controls.Add(TeacherTelephoneTxb);
+            TeachingInfoGroupBox.Controls.Add(TelephoneLbl);
+            TeachingInfoGroupBox.Controls.Add(TeacherSalaryTxb);
             TeachingInfoGroupBox.Controls.Add(TchSalaryLbl);
+            TeachingInfoGroupBox.Controls.Add(TchEmailLbl);
+            TeachingInfoGroupBox.Controls.Add(TchEmailTxb);
             TeachingInfoGroupBox.Location = new Point(6, 161);
             TeachingInfoGroupBox.Name = "TeachingInfoGroupBox";
-            TeachingInfoGroupBox.Size = new Size(383, 64);
+            TeachingInfoGroupBox.Size = new Size(383, 112);
             TeachingInfoGroupBox.TabIndex = 1;
             TeachingInfoGroupBox.TabStop = false;
             TeachingInfoGroupBox.Text = "Teaching Info";
             // 
-            // comboBox1
+            // TeacherTelephoneTxb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(256, 22);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 3;
+            TeacherTelephoneTxb.Location = new Point(277, 19);
+            TeacherTelephoneTxb.Name = "TeacherTelephoneTxb";
+            TeacherTelephoneTxb.Size = new Size(100, 23);
+            TeacherTelephoneTxb.TabIndex = 9;
             // 
-            // TchSalaryType
+            // TelephoneLbl
             // 
-            TchSalaryType.AutoSize = true;
-            TchSalaryType.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TchSalaryType.Location = new Point(181, 25);
-            TchSalaryType.Name = "TchSalaryType";
-            TchSalaryType.Size = new Size(69, 15);
-            TchSalaryType.TabIndex = 2;
-            TchSalaryType.Text = "Salary Type";
+            TelephoneLbl.AutoSize = true;
+            TelephoneLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TelephoneLbl.Location = new Point(206, 19);
+            TelephoneLbl.Name = "TelephoneLbl";
+            TelephoneLbl.Size = new Size(65, 15);
+            TelephoneLbl.TabIndex = 8;
+            TelephoneLbl.Text = "Telephone";
             // 
-            // textBox4
+            // TeacherSalaryTxb
             // 
-            textBox4.Location = new Point(48, 22);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 1;
+            TeacherSalaryTxb.Location = new Point(48, 74);
+            TeacherSalaryTxb.Name = "TeacherSalaryTxb";
+            TeacherSalaryTxb.Size = new Size(100, 23);
+            TeacherSalaryTxb.TabIndex = 1;
             // 
             // TchSalaryLbl
             // 
             TchSalaryLbl.AutoSize = true;
             TchSalaryLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TchSalaryLbl.Location = new Point(6, 25);
+            TchSalaryLbl.Location = new Point(6, 77);
             TchSalaryLbl.Name = "TchSalaryLbl";
             TchSalaryLbl.Size = new Size(40, 15);
             TchSalaryLbl.TabIndex = 0;
             TchSalaryLbl.Text = "Salary";
             // 
+            // TchEmailLbl
+            // 
+            TchEmailLbl.AutoSize = true;
+            TchEmailLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TchEmailLbl.Location = new Point(6, 22);
+            TchEmailLbl.Name = "TchEmailLbl";
+            TchEmailLbl.Size = new Size(36, 15);
+            TchEmailLbl.TabIndex = 6;
+            TchEmailLbl.Text = "Email";
+            // 
+            // TchEmailTxb
+            // 
+            TchEmailTxb.Location = new Point(48, 19);
+            TchEmailTxb.Name = "TchEmailTxb";
+            TchEmailTxb.Size = new Size(100, 23);
+            TchEmailTxb.TabIndex = 7;
+            // 
             // PersonalInfiGroupBox
             // 
+            PersonalInfiGroupBox.Controls.Add(TeacherGenderCbox);
+            PersonalInfiGroupBox.Controls.Add(GenderLbl);
             PersonalInfiGroupBox.Controls.Add(TchAgeTxb);
-            PersonalInfiGroupBox.Controls.Add(TchAgeLbl);
             PersonalInfiGroupBox.Controls.Add(TchDOBErrorMsgLbl);
             PersonalInfiGroupBox.Controls.Add(TchLastNameErrorMsgLbl);
+            PersonalInfiGroupBox.Controls.Add(TchAgeLbl);
             PersonalInfiGroupBox.Controls.Add(TchFirstNameErrorMsgLbl);
-            PersonalInfiGroupBox.Controls.Add(TchEmailTxb);
-            PersonalInfiGroupBox.Controls.Add(TchEmailLbl);
             PersonalInfiGroupBox.Controls.Add(TchDOBDatePicker);
             PersonalInfiGroupBox.Controls.Add(TchDOBLbl);
             PersonalInfiGroupBox.Controls.Add(TchLastNameLbl);
@@ -417,24 +467,33 @@
             PersonalInfiGroupBox.Size = new Size(383, 149);
             PersonalInfiGroupBox.TabIndex = 0;
             PersonalInfiGroupBox.TabStop = false;
-            PersonalInfiGroupBox.Text = "Personal Information";
+            PersonalInfiGroupBox.Text = "Basic Information";
+            // 
+            // TeacherGenderCbox
+            // 
+            TeacherGenderCbox.FormattingEnabled = true;
+            TeacherGenderCbox.Location = new Point(277, 109);
+            TeacherGenderCbox.Name = "TeacherGenderCbox";
+            TeacherGenderCbox.Size = new Size(100, 23);
+            TeacherGenderCbox.TabIndex = 14;
+            // 
+            // GenderLbl
+            // 
+            GenderLbl.AutoSize = true;
+            GenderLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GenderLbl.Location = new Point(206, 117);
+            GenderLbl.Name = "GenderLbl";
+            GenderLbl.Size = new Size(49, 15);
+            GenderLbl.TabIndex = 13;
+            GenderLbl.Text = "Gender";
             // 
             // TchAgeTxb
             // 
-            TchAgeTxb.Location = new Point(195, 112);
+            TchAgeTxb.Location = new Point(79, 114);
             TchAgeTxb.Name = "TchAgeTxb";
+            TchAgeTxb.ReadOnly = true;
             TchAgeTxb.Size = new Size(100, 23);
             TchAgeTxb.TabIndex = 12;
-            // 
-            // TchAgeLbl
-            // 
-            TchAgeLbl.AutoSize = true;
-            TchAgeLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TchAgeLbl.Location = new Point(160, 115);
-            TchAgeLbl.Name = "TchAgeLbl";
-            TchAgeLbl.Size = new Size(29, 15);
-            TchAgeLbl.TabIndex = 11;
-            TchAgeLbl.Text = "Age";
             // 
             // TchDOBErrorMsgLbl
             // 
@@ -442,9 +501,8 @@
             TchDOBErrorMsgLbl.ForeColor = Color.Red;
             TchDOBErrorMsgLbl.Location = new Point(94, 89);
             TchDOBErrorMsgLbl.Name = "TchDOBErrorMsgLbl";
-            TchDOBErrorMsgLbl.Size = new Size(95, 15);
+            TchDOBErrorMsgLbl.Size = new Size(0, 15);
             TchDOBErrorMsgLbl.TabIndex = 10;
-            TchDOBErrorMsgLbl.Text = "Invalid DateTime";
             // 
             // TchLastNameErrorMsgLbl
             // 
@@ -452,9 +510,18 @@
             TchLastNameErrorMsgLbl.ForeColor = Color.Red;
             TchLastNameErrorMsgLbl.Location = new Point(206, 42);
             TchLastNameErrorMsgLbl.Name = "TchLastNameErrorMsgLbl";
-            TchLastNameErrorMsgLbl.Size = new Size(101, 15);
+            TchLastNameErrorMsgLbl.Size = new Size(0, 15);
             TchLastNameErrorMsgLbl.TabIndex = 9;
-            TchLastNameErrorMsgLbl.Text = "Invalid Last Name";
+            // 
+            // TchAgeLbl
+            // 
+            TchAgeLbl.AutoSize = true;
+            TchAgeLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TchAgeLbl.Location = new Point(6, 117);
+            TchAgeLbl.Name = "TchAgeLbl";
+            TchAgeLbl.Size = new Size(29, 15);
+            TchAgeLbl.TabIndex = 11;
+            TchAgeLbl.Text = "Age";
             // 
             // TchFirstNameErrorMsgLbl
             // 
@@ -462,26 +529,8 @@
             TchFirstNameErrorMsgLbl.ForeColor = Color.Red;
             TchFirstNameErrorMsgLbl.Location = new Point(6, 42);
             TchFirstNameErrorMsgLbl.Name = "TchFirstNameErrorMsgLbl";
-            TchFirstNameErrorMsgLbl.Size = new Size(102, 15);
+            TchFirstNameErrorMsgLbl.Size = new Size(0, 15);
             TchFirstNameErrorMsgLbl.TabIndex = 8;
-            TchFirstNameErrorMsgLbl.Text = "Invalid First Name";
-            // 
-            // TchEmailTxb
-            // 
-            TchEmailTxb.Location = new Point(48, 112);
-            TchEmailTxb.Name = "TchEmailTxb";
-            TchEmailTxb.Size = new Size(100, 23);
-            TchEmailTxb.TabIndex = 7;
-            // 
-            // TchEmailLbl
-            // 
-            TchEmailLbl.AutoSize = true;
-            TchEmailLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TchEmailLbl.Location = new Point(6, 115);
-            TchEmailLbl.Name = "TchEmailLbl";
-            TchEmailLbl.Size = new Size(36, 15);
-            TchEmailLbl.TabIndex = 6;
-            TchEmailLbl.Text = "Email";
             // 
             // TchDOBDatePicker
             // 
@@ -534,14 +583,25 @@
             TchFirstNameTxb.Size = new Size(100, 23);
             TchFirstNameTxb.TabIndex = 0;
             // 
+            // AssignSubjectTabPage
+            // 
+            AssignSubjectTabPage.Location = new Point(4, 24);
+            AssignSubjectTabPage.Name = "AssignSubjectTabPage";
+            AssignSubjectTabPage.Padding = new Padding(3);
+            AssignSubjectTabPage.Size = new Size(674, 364);
+            AssignSubjectTabPage.TabIndex = 2;
+            AssignSubjectTabPage.Text = "Assign Subject";
+            AssignSubjectTabPage.UseVisualStyleBackColor = true;
+            // 
             // TeacherView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(621, 468);
+            ClientSize = new Size(695, 491);
             Controls.Add(TeacherTabControl);
             Controls.Add(TecherPanel);
+            MinimumSize = new Size(674, 364);
             Name = "TeacherView";
             Text = "TeacherView";
             TecherPanel.ResumeLayout(false);
@@ -590,13 +650,11 @@
         private TextBox TchAgeTxb;
         private Label TchAgeLbl;
         private GroupBox TeachingInfoGroupBox;
-        private TextBox textBox4;
+        private TextBox TeacherSalaryTxb;
         private Label TchSalaryLbl;
         private Label TaughtSubjects;
         private DataGridView dataGridView3;
         private DataGridView dataGridView2;
-        private ComboBox comboBox1;
-        private Label TchSalaryType;
         private Button TchCancelBtn;
         private Button TchSaveBtn;
         private Label TeachingSubjectsLbl;
@@ -609,5 +667,11 @@
         private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private TextBox TeacherTelephoneTxb;
+        private Label TelephoneLbl;
+        private ComboBox TeacherGenderCbox;
+        private Label GenderLbl;
+        private Button AssignSubjectBtn;
+        private TabPage AssignSubjectTabPage;
     }
 }

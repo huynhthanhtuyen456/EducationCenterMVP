@@ -66,6 +66,11 @@ namespace EducationCenter.Presenters
             view.TeacherFirstName = teacher.FirstName;
             view.TeacherLastName = teacher.LastName;
             view.TeacherEmail = teacher.Email;
+            view.TeacherGender = teacher.Gender;
+            view.TeacherDateOfBirth = teacher.DateOfBirth;
+            view.TeacherAge = teacher.Age;
+            view.TeacherSalary = teacher.Salary;
+            view.TeacherTelephone = teacher.Telephone;
             view.IsEdit = true;
         }
         private void SaveTeacher(object sender, EventArgs e)
@@ -75,10 +80,11 @@ namespace EducationCenter.Presenters
                 Id = view.TeacherId,
                 FirstName = view.TeacherFirstName,
                 LastName = view.TeacherLastName,
-                DateOfBirth = DateOnly.FromDateTime(view.TeacherDateOfBirth),
+                DateOfBirth = view.TeacherDateOfBirth,
                 Email = view.TeacherEmail,
-                RoleId = 1,
-                Salary = 1,
+                Gender = view.TeacherGender,
+                Telephone = view.TeacherTelephone,
+                Salary = view.TeacherSalary,
             };
             try
             {
@@ -110,6 +116,10 @@ namespace EducationCenter.Presenters
             view.TeacherFirstName = "";
             view.TeacherLastName = "";
             view.TeacherEmail = "";
+            view.TeacherDateOfBirth = DateOnly.FromDateTime(DateTime.Now);
+            view.TeacherAge = 0;
+            view.TeacherSalary = 0;
+            view.TeacherGender = 0;
         }
 
         private void CancelAction(object sender, EventArgs e)

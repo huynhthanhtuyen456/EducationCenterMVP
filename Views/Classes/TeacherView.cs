@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EducationCenter.Views.Interfaces;
+using Helper.Enums;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace EducationCenter
@@ -24,6 +25,7 @@ namespace EducationCenter
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
+            TeacherGenderCbox.DataSource = Enum.GetValues(typeof(GenderEnum));
             CloseTeacherFormBtn.Click += delegate { this.Close(); };
         }
 
@@ -39,17 +41,17 @@ namespace EducationCenter
             //Add new
             AddTeacherBtn.Click += delegate
             {
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
                 TeacherTabControl.TabPages.Remove(TeacherListTabPage);
                 TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
                 TeacherDetailTabPage.Text = "Add new teacher";
             };
             //Edit
             EditTeacherBtn.Click += delegate
             {
-                EditEvent?.Invoke(this, EventArgs.Empty);
                 TeacherTabControl.TabPages.Remove(TeacherListTabPage);
                 TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
+                EditEvent?.Invoke(this, EventArgs.Empty);
                 TeacherDetailTabPage.Text = "Edit Teacher";
             };
             //Save changes
@@ -95,12 +97,20 @@ namespace EducationCenter
             get { return TchLastNameTxb.Text; }
             set { TchLastNameTxb.Text = value; }
         }
-        public DateTime TeacherDateOfBirth
+        public DateOnly TeacherDateOfBirth
         {
-            get { return TchDOBDatePicker.Value; }
+            get { return DateOnly.FromDateTime(TchDOBDatePicker.Value); }
             set
             {
-                TchDOBDatePicker.Value = value;
+                TchDOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
+            }
+        }
+        public GenderEnum TeacherGender
+        {
+            get { return (GenderEnum)TeacherGenderCbox.SelectedItem; }
+            set
+            {
+                TeacherGenderCbox.SelectedItem = (GenderEnum)value;
             }
         }
         public int TeacherAge
@@ -108,7 +118,7 @@ namespace EducationCenter
             get { return Int32.Parse(TchAgeTxb.Text); }
             set
             {
-                TchAgeTxb.Text = (TchDOBDatePicker.Value.Year - DateTime.Now.Year).ToString();
+                TchAgeTxb.Text = value.ToString();
             }
         }
         public string TeacherEmail
@@ -116,6 +126,17 @@ namespace EducationCenter
             get { return TchEmailTxb.Text; }
             set { TchEmailTxb.Text = value; }
         }
+        public decimal TeacherSalary
+        {
+            get { return Decimal.Parse(TeacherSalaryTxb.Text); }
+            set { TeacherSalaryTxb.Text = value.ToString(); }
+        }
+        public string TeacherTelephone
+        {
+            get { return TeacherTelephoneTxb.Text; }
+            set { TeacherTelephoneTxb.Text = value; }
+        }
+
         public string SearchValue
         {
             get { return TchSearchValTxb.Text; }

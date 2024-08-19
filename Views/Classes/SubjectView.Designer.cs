@@ -67,6 +67,7 @@
             // 
             // TecherPanel
             // 
+            TecherPanel.BackColor = SystemColors.ActiveCaption;
             TecherPanel.Controls.Add(CloseSubjectViewBtn);
             TecherPanel.Controls.Add(CloseTeacherFormBtn);
             TecherPanel.Controls.Add(SubjectLbl);
@@ -139,41 +140,61 @@
             // DeleteSubjectBtn
             // 
             DeleteSubjectBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            DeleteSubjectBtn.BackColor = Color.Red;
+            DeleteSubjectBtn.FlatAppearance.BorderSize = 0;
+            DeleteSubjectBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 192);
+            DeleteSubjectBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
+            DeleteSubjectBtn.FlatStyle = FlatStyle.Flat;
             DeleteSubjectBtn.Location = new Point(709, 93);
             DeleteSubjectBtn.Name = "DeleteSubjectBtn";
             DeleteSubjectBtn.Size = new Size(75, 23);
             DeleteSubjectBtn.TabIndex = 5;
             DeleteSubjectBtn.Text = "Delete";
-            DeleteSubjectBtn.UseVisualStyleBackColor = true;
+            DeleteSubjectBtn.UseVisualStyleBackColor = false;
             // 
             // EditSubjectBtn
             // 
             EditSubjectBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            EditSubjectBtn.BackColor = Color.Yellow;
+            EditSubjectBtn.FlatAppearance.BorderSize = 0;
+            EditSubjectBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 255, 192);
+            EditSubjectBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
+            EditSubjectBtn.FlatStyle = FlatStyle.Flat;
             EditSubjectBtn.Location = new Point(709, 64);
             EditSubjectBtn.Name = "EditSubjectBtn";
             EditSubjectBtn.Size = new Size(75, 23);
             EditSubjectBtn.TabIndex = 4;
             EditSubjectBtn.Text = "Edit";
-            EditSubjectBtn.UseVisualStyleBackColor = true;
+            EditSubjectBtn.UseVisualStyleBackColor = false;
             // 
             // AddSubjectBtn
             // 
             AddSubjectBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            AddSubjectBtn.BackColor = Color.Lime;
+            AddSubjectBtn.FlatAppearance.BorderSize = 0;
+            AddSubjectBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 192);
+            AddSubjectBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128);
+            AddSubjectBtn.FlatStyle = FlatStyle.Flat;
             AddSubjectBtn.Location = new Point(709, 35);
             AddSubjectBtn.Name = "AddSubjectBtn";
             AddSubjectBtn.Size = new Size(75, 23);
             AddSubjectBtn.TabIndex = 3;
             AddSubjectBtn.Text = "Add";
-            AddSubjectBtn.UseVisualStyleBackColor = true;
+            AddSubjectBtn.UseVisualStyleBackColor = false;
             // 
             // SearchSubjectBtn
             // 
+            SearchSubjectBtn.BackColor = Color.FromArgb(255, 128, 0);
+            SearchSubjectBtn.FlatAppearance.BorderSize = 0;
+            SearchSubjectBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
+            SearchSubjectBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
+            SearchSubjectBtn.FlatStyle = FlatStyle.Flat;
             SearchSubjectBtn.Location = new Point(277, 6);
             SearchSubjectBtn.Name = "SearchSubjectBtn";
             SearchSubjectBtn.Size = new Size(75, 23);
             SearchSubjectBtn.TabIndex = 2;
             SearchSubjectBtn.Text = "Search";
-            SearchSubjectBtn.UseVisualStyleBackColor = true;
+            SearchSubjectBtn.UseVisualStyleBackColor = false;
             // 
             // SearchSubjectTxb
             // 

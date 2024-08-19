@@ -66,18 +66,19 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 483);
+            panel1.Size = new Size(200, 534);
             panel1.TabIndex = 2;
             // 
             // LogoutBtn
             // 
+            LogoutBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             LogoutBtn.Cursor = Cursors.Hand;
             LogoutBtn.FlatAppearance.BorderSize = 0;
             LogoutBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
             LogoutBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
             LogoutBtn.FlatStyle = FlatStyle.Flat;
             LogoutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LogoutBtn.Location = new Point(3, 448);
+            LogoutBtn.Location = new Point(3, 508);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.Size = new Size(194, 23);
             LogoutBtn.TabIndex = 5;
@@ -138,9 +139,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(827, 483);
+            ClientSize = new Size(962, 534);
             Controls.Add(panel1);
             IsMdiContainer = true;
+            MinimumSize = new Size(978, 573);
             Name = "MainView";
             Text = "Education Center";
             Load += MainView_Load;

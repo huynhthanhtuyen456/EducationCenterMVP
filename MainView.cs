@@ -15,9 +15,27 @@ namespace EducationCenter
         public MainView()
         {
             InitializeComponent();
-            ShowTeacherViewBtn.Click += delegate { ShowTeacherView?.Invoke(this, EventArgs.Empty); };
-            ShowStudentViewBtn.Click += delegate { ShowStudentView?.Invoke(this, EventArgs.Empty); };
-            ShowSubjectViewBtn.Click += delegate { ShowSubjectView?.Invoke(this, EventArgs.Empty); };
+            ShowTeacherViewBtn.Click += delegate 
+            { 
+                ShowTeacherView?.Invoke(this, EventArgs.Empty);
+                ShowTeacherViewBtn.BackColor = Color.FromArgb(255, 224, 192);
+                ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowSubjectViewBtn.BackColor = SystemColors.ActiveCaption;
+            };
+            ShowStudentViewBtn.Click += delegate 
+            { 
+                ShowStudentView?.Invoke(this, EventArgs.Empty);
+                ShowStudentViewBtn.BackColor = Color.FromArgb(255, 224, 192);
+                ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowSubjectViewBtn.BackColor = SystemColors.ActiveCaption;
+            };
+            ShowSubjectViewBtn.Click += delegate 
+            {
+                ShowSubjectView?.Invoke(this, EventArgs.Empty);
+                ShowSubjectViewBtn.BackColor = Color.FromArgb(255, 224, 192);
+                ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
+            };
         }
 
         public event EventHandler? ShowTeacherView;
@@ -26,7 +44,10 @@ namespace EducationCenter
 
         private void MainView_Load(object sender, EventArgs e)
         {
-            ShowTeacherView?.Invoke(this, EventArgs.Empty);
+            ShowSubjectView?.Invoke(this, EventArgs.Empty);
+            ShowSubjectViewBtn.BackColor = Color.FromArgb(255, 224, 192);
+            ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
+            ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
         }
     }
 }

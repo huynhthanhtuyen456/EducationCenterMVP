@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helper.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,12 @@ namespace EducationCenter.Views.Interfaces
         int TeacherId { get; set; }
         string TeacherFirstName { get; set; }
         string TeacherLastName { get; set; }
-        DateTime TeacherDateOfBirth { get; set; }
-        //string TeacherGender { get; set; }
+        DateOnly TeacherDateOfBirth { get; set; }
+        GenderEnum TeacherGender { get; set; }
         int TeacherAge { get; set; }
         string TeacherEmail { get; set; }
+        decimal TeacherSalary { get; set; }
+        string TeacherTelephone { get; set; }
 
         string SearchValue { get; set; }
         bool IsEdit { get; set; }
