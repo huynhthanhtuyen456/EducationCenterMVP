@@ -23,6 +23,7 @@ namespace EducationCenter.Presenters
             this.mainView.ShowSubjectView += ShowSubjectView;
             this.mainView.ShowStudentView += ShowStudentView;
             this.mainView.ShowAdministratorView += ShowAdministratorView;
+            this.mainView.LogOutEvent += CloseMainView;
         }
 
         private void ShowTeacherView(object sender, EventArgs e)
@@ -51,6 +52,12 @@ namespace EducationCenter.Presenters
             IAdminView view = AdministratorView.GetInstance((MainView)mainView);
             IAdministratorRepository repository = new AdministratorRepository();
             new AdministratorPresenter(view, repository);
+        }
+
+        private void CloseMainView(object sender, EventArgs e)
+        {
+            mainView.Close();
+            mainView.IsLoggedOut = true;
         }
     }
 }

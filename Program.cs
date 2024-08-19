@@ -15,9 +15,16 @@ namespace EducationCenter
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            IMainView view = new MainView();
-            new MainPresenter(view);
-            Application.Run((Form)view);
+            IMainView mainView = new MainView();
+            new MainPresenter(mainView);
+            ILoginView loginView = new LoginView();
+            new LoginPresenter(loginView);
+            Application.Run((Form)loginView);
+            if (loginView.IsSuccessfull)
+            {
+                loginView.Close();
+                Application.Run((Form)mainView);
+            }
         }
     }
 }

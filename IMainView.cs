@@ -12,5 +12,9 @@ namespace EducationCenter
         event EventHandler ShowTeacherView;
         event EventHandler ShowStudentView;
         event EventHandler ShowSubjectView;
+        event EventHandler LogOutEvent;
+        bool IsLoggedOut { get; set; }
+        void Show();
+        void Close();
     }
 }
