@@ -60,7 +60,12 @@ namespace EducationCenter.Presenters.Classes
         }
         private void LoadSelectedStudentToEdit(object sender, EventArgs e)
         {
-            var student = (Student)studentsBindingSource.Current;
+            Student student = (Student)studentsBindingSource.Current;
+            if (student == null)
+            {
+                view.IsEdit = false;
+                return;
+            }
             view.StudentId = student.Id;
             view.StudentFirstName = student.FirstName;
             view.StudentLastName = student.LastName;
@@ -135,7 +140,7 @@ namespace EducationCenter.Presenters.Classes
             catch (Exception ex)
             {
                 view.IsSuccessfull = false;
-                view.Message = "An error ocurred, could not delete student";
+                view.Message = "An error ocurred, could not delete student! Cannot find student.";
             }
         }
     }

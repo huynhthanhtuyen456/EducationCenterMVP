@@ -56,6 +56,13 @@ namespace EducationCenter.Views.Classes
                 StudentTabControl.TabPages.Add(StudentDetailTabPage);
                 EditEvent?.Invoke(this, EventArgs.Empty);
                 StudentDetailTabPage.Text = "Edit Student";
+                if (!isEdit)
+                {
+                    StudentTabControl.TabPages.Remove(StudentListTabPage);
+                    StudentTabControl.TabPages.Remove(StudentDetailTabPage);
+                    StudentTabControl.TabPages.Add(StudentListTabPage);
+                    MessageBox.Show("Does not have any records");
+                }
             };
             //Save changes
             SaveStudentBtn.Click += delegate

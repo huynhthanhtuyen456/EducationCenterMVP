@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            CloseStudentViewBtn = new Label();
             StudentViewLbl = new Label();
             StudentTabControl = new TabControl();
             StudentListTabPage = new TabPage();
@@ -39,6 +41,7 @@
             EditStudentBtn = new Button();
             AddStudentBtn = new Button();
             StudentListDgv = new DataGridView();
+            studentBindingSource = new BindingSource(components);
             StudentDetailTabPage = new TabPage();
             StudyingSubjectLbl = new Label();
             StudiedSubjectLbl = new Label();
@@ -61,11 +64,18 @@
             LastNameLbl = new Label();
             FirstNameTxb = new TextBox();
             label1 = new Label();
-            CloseStudentViewBtn = new Label();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            telephoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             StudentTabControl.SuspendLayout();
             StudentListTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)StudentListDgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             StudentDetailTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)StudyingSubjectsDgv).BeginInit();
             ((System.ComponentModel.ISupportInitialize)StudiedSubjectsDgv).BeginInit();
@@ -74,6 +84,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(CloseStudentViewBtn);
             panel1.Controls.Add(StudentViewLbl);
             panel1.Dock = DockStyle.Top;
@@ -82,9 +93,20 @@
             panel1.Size = new Size(800, 100);
             panel1.TabIndex = 0;
             // 
+            // CloseStudentViewBtn
+            // 
+            CloseStudentViewBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CloseStudentViewBtn.AutoSize = true;
+            CloseStudentViewBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CloseStudentViewBtn.Location = new Point(761, 9);
+            CloseStudentViewBtn.Name = "CloseStudentViewBtn";
+            CloseStudentViewBtn.Size = new Size(27, 30);
+            CloseStudentViewBtn.TabIndex = 1;
+            CloseStudentViewBtn.Text = "X";
+            // 
             // StudentViewLbl
             // 
-            StudentViewLbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            StudentViewLbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             StudentViewLbl.AutoSize = true;
             StudentViewLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             StudentViewLbl.Location = new Point(309, 21);
@@ -145,6 +167,7 @@
             // 
             // EnrollStudentSubjectBtn
             // 
+            EnrollStudentSubjectBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             EnrollStudentSubjectBtn.BackColor = Color.FromArgb(255, 128, 0);
             EnrollStudentSubjectBtn.Cursor = Cursors.Hand;
             EnrollStudentSubjectBtn.FlatAppearance.BorderSize = 0;
@@ -160,6 +183,7 @@
             // 
             // DeleteStudentBtn
             // 
+            DeleteStudentBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DeleteStudentBtn.BackColor = Color.Red;
             DeleteStudentBtn.Cursor = Cursors.Hand;
             DeleteStudentBtn.FlatAppearance.BorderSize = 0;
@@ -175,6 +199,7 @@
             // 
             // EditStudentBtn
             // 
+            EditStudentBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             EditStudentBtn.BackColor = Color.Yellow;
             EditStudentBtn.Cursor = Cursors.Hand;
             EditStudentBtn.FlatAppearance.BorderSize = 0;
@@ -190,6 +215,7 @@
             // 
             // AddStudentBtn
             // 
+            AddStudentBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             AddStudentBtn.BackColor = Color.Lime;
             AddStudentBtn.Cursor = Cursors.Hand;
             AddStudentBtn.FlatAppearance.BorderSize = 0;
@@ -205,12 +231,26 @@
             // 
             // StudentListDgv
             // 
+            StudentListDgv.AllowUserToAddRows = false;
+            StudentListDgv.AllowUserToDeleteRows = false;
+            StudentListDgv.AllowUserToOrderColumns = true;
+            StudentListDgv.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            StudentListDgv.AutoGenerateColumns = false;
+            StudentListDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            StudentListDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             StudentListDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            StudentListDgv.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, telephoneDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn });
+            StudentListDgv.DataSource = studentBindingSource;
             StudentListDgv.Location = new Point(8, 35);
             StudentListDgv.Name = "StudentListDgv";
+            StudentListDgv.ReadOnly = true;
             StudentListDgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             StudentListDgv.Size = new Size(695, 279);
             StudentListDgv.TabIndex = 0;
+            // 
+            // studentBindingSource
+            // 
+            studentBindingSource.DataSource = typeof(DataLayer.Entities.Students.Student);
             // 
             // StudentDetailTabPage
             // 
@@ -437,15 +477,54 @@
             label1.TabIndex = 0;
             label1.Text = "First Name";
             // 
-            // CloseStudentViewBtn
+            // idDataGridViewTextBoxColumn
             // 
-            CloseStudentViewBtn.AutoSize = true;
-            CloseStudentViewBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            CloseStudentViewBtn.Location = new Point(761, 9);
-            CloseStudentViewBtn.Name = "CloseStudentViewBtn";
-            CloseStudentViewBtn.Size = new Size(27, 30);
-            CloseStudentViewBtn.TabIndex = 1;
-            CloseStudentViewBtn.Text = "X";
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email Address";
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telephoneDataGridViewTextBoxColumn
+            // 
+            telephoneDataGridViewTextBoxColumn.DataPropertyName = "Telephone";
+            telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
+            telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
+            telephoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            genderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date Of Birth";
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            ageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // StudentView
             // 
@@ -462,6 +541,7 @@
             StudentListTabPage.ResumeLayout(false);
             StudentListTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)StudentListDgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             StudentDetailTabPage.ResumeLayout(false);
             StudentDetailTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)StudyingSubjectsDgv).EndInit();
@@ -507,5 +587,13 @@
         private ComboBox GenderComboBox;
         private Label GenderLbl;
         private Label CloseStudentViewBtn;
+        private BindingSource studentBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
     }
 }
