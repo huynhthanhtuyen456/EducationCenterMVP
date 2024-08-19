@@ -24,8 +24,8 @@ namespace EducationCenter.Views.Classes
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             AdminTabControl.TabPages.Remove(AdminDetailTabPage);
-            GenderComboBox.DataSource = Enum.GetValues(typeof(GenderEnum));
-            WorkingTypeComboBox.DataSource = Enum.GetValues(typeof(WorkingTypeEnum));
+            AdminGenderComboBox.DataSource = Enum.GetValues(typeof(GenderEnum));
+            AdminWorkingTypeComboBox.DataSource = Enum.GetValues(typeof(WorkingTypeEnum));
             CloseAdministratorViewBtn.Click += delegate { this.Close(); };
         }
 
@@ -33,11 +33,11 @@ namespace EducationCenter.Views.Classes
         {
             /* Start Emitting Event Related to Teacher Record */
             //Search
-            SearchAdminBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            SearchAdminBtn.Click += delegate { SearchAdminEvent?.Invoke(this, EventArgs.Empty); };
             SearchAdminTxb.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                    SearchAdminEvent?.Invoke(this, EventArgs.Empty);
             };
             //Add new
             AddAdminBtn.Click += delegate
@@ -45,7 +45,7 @@ namespace EducationCenter.Views.Classes
                 AdminTabControl.TabPages.Remove(AdminListTabPage);
                 AdminTabControl.TabPages.Remove(AdminDetailTabPage);
                 AdminTabControl.TabPages.Add(AdminDetailTabPage);
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                AddNewAdminEvent?.Invoke(this, EventArgs.Empty);
                 AdminDetailTabPage.Text = "Add new administrator";
             };
             ////Edit
@@ -54,7 +54,7 @@ namespace EducationCenter.Views.Classes
                 AdminTabControl.TabPages.Remove(AdminListTabPage);
                 AdminTabControl.TabPages.Remove(AdminDetailTabPage);
                 AdminTabControl.TabPages.Add(AdminDetailTabPage);
-                EditEvent?.Invoke(this, EventArgs.Empty);
+                EditAdminEvent?.Invoke(this, EventArgs.Empty);
                 AdminDetailTabPage.Text = "Edit Administrator";
                 if (!isEdit)
                 {
@@ -67,22 +67,22 @@ namespace EducationCenter.Views.Classes
             //Save changes
             SaveAdminBtn.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveAdminEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessfull)
                 {
                     AdminTabControl.TabPages.Remove(AdminListTabPage);
                     AdminTabControl.TabPages.Remove(AdminDetailTabPage);
-                    AdminTabControl.TabPages.Add(AdminDetailTabPage);
+                    AdminTabControl.TabPages.Add(AdminListTabPage);
                 }
                 MessageBox.Show(Message);
             };
             //Cancel
             CancelAdminBtn.Click += delegate
             {
-                CancelEvent?.Invoke(this, EventArgs.Empty);
+                CancelAdminEvent?.Invoke(this, EventArgs.Empty);
                 AdminTabControl.TabPages.Remove(AdminListTabPage);
                 AdminTabControl.TabPages.Remove(AdminDetailTabPage);
-                AdminTabControl.TabPages.Add(AdminDetailTabPage);
+                AdminTabControl.TabPages.Add(AdminListTabPage);
             };
             //Delete
             DeleteAdminBtn.Click += delegate
@@ -91,7 +91,7 @@ namespace EducationCenter.Views.Classes
                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    DeleteAdminEvent?.Invoke(this, EventArgs.Empty);
                     MessageBox.Show(Message);
                 }
             };
@@ -103,63 +103,72 @@ namespace EducationCenter.Views.Classes
 
         public string AdminFirstName
         {
-            get { return FirstNameTxb.Text; }
-            set { FirstNameTxb.Text = value; }
+            get { return AdminFirstNameTxb.Text; }
+            set { AdminFirstNameTxb.Text = value; }
         }
         public string AdminLastName
         {
-            get { return LastNameTxb.Text; }
-            set { LastNameTxb.Text = value; }
+            get { return AdminLastNameTxb.Text; }
+            set { AdminLastNameTxb.Text = value; }
         }
         public DateOnly AdminDateOfBirth
         {
-            get { return DateOnly.FromDateTime(DOBDatePicker.Value); }
+            get { return DateOnly.FromDateTime(AdminDOBDatePicker.Value); }
             set
             {
-                DOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
+                AdminDOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
             }
         }
         public GenderEnum AdminGender
         {
-            get { return (GenderEnum)GenderComboBox.SelectedItem; }
+            get { return (GenderEnum)AdminGenderComboBox.SelectedItem; }
             set
             {
-                GenderComboBox.SelectedItem = (GenderEnum)value;
+                AdminGenderComboBox.SelectedItem = (GenderEnum)value;
             }
         }
         public int AdminAge
         {
-            get { return Int32.Parse(AgeTxb.Text); }
+            get { return Int32.Parse(AdminAgeTxb.Text); }
             set
             {
-                AgeTxb.Text = value.ToString();
+                AdminAgeTxb.Text = value.ToString();
             }
         }
         public string AdminEmail
         {
-            get { return EmailTxb.Text; }
-            set { EmailTxb.Text = value; }
+            get { return AdminEmailTxb.Text; }
+            set { AdminEmailTxb.Text = value; }
         }
         public string AdminTelephone
         {
-            get { return TelephoneTxb.Text; }
-            set { TelephoneTxb.Text = value; }
+            get { return AdminTelephoneTxb.Text; }
+            set { AdminTelephoneTxb.Text = value; }
         }
 
-        public WorkingTypeEnum AdminWorkingType 
+        public WorkingTypeEnum AdminWorkingType
         {
-            get { return (WorkingTypeEnum)WorkingTypeComboBox.SelectedItem; }
+            get { return (WorkingTypeEnum)AdminWorkingTypeComboBox.SelectedItem; }
             set
             {
-                WorkingTypeComboBox.SelectedItem = (WorkingTypeEnum)value;
+                AdminWorkingTypeComboBox.SelectedItem = (WorkingTypeEnum)value;
             }
         }
-        public int AdminWorkingScheduleId 
-        { 
-            get { return (int)WorkingScheduleComboBox.SelectedValue; }
-            set {  WorkingScheduleComboBox.SelectedValue = value;}
+        public int AdminWorkingScheduleId
+        {
+            get { return (int)AdminWorkingScheduleComboBox.SelectedValue; }
+            set { AdminWorkingScheduleComboBox.SelectedValue = value; }
         }
-        public float AdminWorkingHours { get; set; }
+        public float AdminWorkingHours
+        {
+            get { return float.Parse(AdminWorkingHoursTxb.Text); }
+            set { AdminWorkingHoursTxb.Text = value.ToString("0.00"); }
+        }
+        public decimal AdminSalary
+        {
+            get { return decimal.Parse(AdminSalaryTxb.Text); }
+            set { AdminSalaryTxb.Text = value.ToString(); }
+        }
 
         public string SearchValue
         {
@@ -183,12 +192,12 @@ namespace EducationCenter.Views.Classes
         }
 
         /* Definition Event Handler related to Teacher Entity */
-        public event EventHandler SearchEvent;
-        public event EventHandler AddNewEvent;
-        public event EventHandler EditEvent;
-        public event EventHandler DeleteEvent;
-        public event EventHandler SaveEvent;
-        public event EventHandler CancelEvent;
+        public event EventHandler SearchAdminEvent;
+        public event EventHandler AddNewAdminEvent;
+        public event EventHandler EditAdminEvent;
+        public event EventHandler DeleteAdminEvent;
+        public event EventHandler SaveAdminEvent;
+        public event EventHandler CancelAdminEvent;
         /* End Definition Event Handler related to Teacher Entity */
 
         public void SetAdminListBindingSource(BindingSource adminList)
@@ -198,9 +207,9 @@ namespace EducationCenter.Views.Classes
 
         public void SetWorkingScheduleListBindingSource(BindingSource workingScheduleList)
         {
-            WorkingScheduleComboBox.DisplayMember = "Name";
-            WorkingScheduleComboBox.ValueMember = "Id";
-            WorkingScheduleComboBox.DataSource = workingScheduleList;
+            AdminWorkingScheduleComboBox.DisplayMember = "Name";
+            AdminWorkingScheduleComboBox.ValueMember = "Id";
+            AdminWorkingScheduleComboBox.DataSource = workingScheduleList;
         }
 
         //Singleton pattern (Open a single form instance)

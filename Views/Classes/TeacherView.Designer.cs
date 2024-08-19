@@ -62,21 +62,21 @@
             TeacherSalaryTxb = new TextBox();
             TchSalaryLbl = new Label();
             TchEmailLbl = new Label();
-            TchEmailTxb = new TextBox();
+            TeacherEmailTxb = new TextBox();
             PersonalInfiGroupBox = new GroupBox();
             TeacherGenderCbox = new ComboBox();
             GenderLbl = new Label();
-            TchAgeTxb = new TextBox();
+            TeacherAgeTxb = new TextBox();
             TchDOBErrorMsgLbl = new Label();
             TchLastNameErrorMsgLbl = new Label();
             TchAgeLbl = new Label();
             TchFirstNameErrorMsgLbl = new Label();
-            TchDOBDatePicker = new DateTimePicker();
+            TeacherDOBDatePicker = new DateTimePicker();
             TchDOBLbl = new Label();
             TchLastNameLbl = new Label();
             TchFirstNameLbl = new Label();
-            TchLastNameTxb = new TextBox();
-            TchFirstNameTxb = new TextBox();
+            TeacherLastNameTxb = new TextBox();
+            TeacherFirstNameTxb = new TextBox();
             AssignSubjectTabPage = new TabPage();
             AssignSubject2GrpBox = new GroupBox();
             button1 = new Button();
@@ -413,7 +413,7 @@
             TeachingInfoGroupBox.Controls.Add(TeacherSalaryTxb);
             TeachingInfoGroupBox.Controls.Add(TchSalaryLbl);
             TeachingInfoGroupBox.Controls.Add(TchEmailLbl);
-            TeachingInfoGroupBox.Controls.Add(TchEmailTxb);
+            TeachingInfoGroupBox.Controls.Add(TeacherEmailTxb);
             TeachingInfoGroupBox.Location = new Point(6, 161);
             TeachingInfoGroupBox.Name = "TeachingInfoGroupBox";
             TeachingInfoGroupBox.Size = new Size(383, 112);
@@ -465,28 +465,28 @@
             TchEmailLbl.TabIndex = 6;
             TchEmailLbl.Text = "Email";
             // 
-            // TchEmailTxb
+            // TeacherEmailTxb
             // 
-            TchEmailTxb.Location = new Point(48, 19);
-            TchEmailTxb.Name = "TchEmailTxb";
-            TchEmailTxb.Size = new Size(100, 23);
-            TchEmailTxb.TabIndex = 7;
+            TeacherEmailTxb.Location = new Point(48, 19);
+            TeacherEmailTxb.Name = "TeacherEmailTxb";
+            TeacherEmailTxb.Size = new Size(100, 23);
+            TeacherEmailTxb.TabIndex = 7;
             // 
             // PersonalInfiGroupBox
             // 
             PersonalInfiGroupBox.Controls.Add(TeacherGenderCbox);
             PersonalInfiGroupBox.Controls.Add(GenderLbl);
-            PersonalInfiGroupBox.Controls.Add(TchAgeTxb);
+            PersonalInfiGroupBox.Controls.Add(TeacherAgeTxb);
             PersonalInfiGroupBox.Controls.Add(TchDOBErrorMsgLbl);
             PersonalInfiGroupBox.Controls.Add(TchLastNameErrorMsgLbl);
             PersonalInfiGroupBox.Controls.Add(TchAgeLbl);
             PersonalInfiGroupBox.Controls.Add(TchFirstNameErrorMsgLbl);
-            PersonalInfiGroupBox.Controls.Add(TchDOBDatePicker);
+            PersonalInfiGroupBox.Controls.Add(TeacherDOBDatePicker);
             PersonalInfiGroupBox.Controls.Add(TchDOBLbl);
             PersonalInfiGroupBox.Controls.Add(TchLastNameLbl);
             PersonalInfiGroupBox.Controls.Add(TchFirstNameLbl);
-            PersonalInfiGroupBox.Controls.Add(TchLastNameTxb);
-            PersonalInfiGroupBox.Controls.Add(TchFirstNameTxb);
+            PersonalInfiGroupBox.Controls.Add(TeacherLastNameTxb);
+            PersonalInfiGroupBox.Controls.Add(TeacherFirstNameTxb);
             PersonalInfiGroupBox.Location = new Point(6, 6);
             PersonalInfiGroupBox.Name = "PersonalInfiGroupBox";
             PersonalInfiGroupBox.Size = new Size(383, 149);
@@ -496,6 +496,7 @@
             // 
             // TeacherGenderCbox
             // 
+            TeacherGenderCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             TeacherGenderCbox.FormattingEnabled = true;
             TeacherGenderCbox.Location = new Point(277, 109);
             TeacherGenderCbox.Name = "TeacherGenderCbox";
@@ -512,13 +513,13 @@
             GenderLbl.TabIndex = 13;
             GenderLbl.Text = "Gender";
             // 
-            // TchAgeTxb
+            // TeacherAgeTxb
             // 
-            TchAgeTxb.Location = new Point(79, 114);
-            TchAgeTxb.Name = "TchAgeTxb";
-            TchAgeTxb.ReadOnly = true;
-            TchAgeTxb.Size = new Size(100, 23);
-            TchAgeTxb.TabIndex = 12;
+            TeacherAgeTxb.Location = new Point(79, 114);
+            TeacherAgeTxb.Name = "TeacherAgeTxb";
+            TeacherAgeTxb.ReadOnly = true;
+            TeacherAgeTxb.Size = new Size(100, 23);
+            TeacherAgeTxb.TabIndex = 12;
             // 
             // TchDOBErrorMsgLbl
             // 
@@ -557,12 +558,12 @@
             TchFirstNameErrorMsgLbl.Size = new Size(0, 15);
             TchFirstNameErrorMsgLbl.TabIndex = 8;
             // 
-            // TchDOBDatePicker
+            // TeacherDOBDatePicker
             // 
-            TchDOBDatePicker.Location = new Point(94, 63);
-            TchDOBDatePicker.Name = "TchDOBDatePicker";
-            TchDOBDatePicker.Size = new Size(283, 23);
-            TchDOBDatePicker.TabIndex = 5;
+            TeacherDOBDatePicker.Location = new Point(94, 63);
+            TeacherDOBDatePicker.Name = "TeacherDOBDatePicker";
+            TeacherDOBDatePicker.Size = new Size(283, 23);
+            TeacherDOBDatePicker.TabIndex = 5;
             // 
             // TchDOBLbl
             // 
@@ -594,19 +595,19 @@
             TchFirstNameLbl.TabIndex = 2;
             TchFirstNameLbl.Text = "First Name";
             // 
-            // TchLastNameTxb
+            // TeacherLastNameTxb
             // 
-            TchLastNameTxb.Location = new Point(277, 16);
-            TchLastNameTxb.Name = "TchLastNameTxb";
-            TchLastNameTxb.Size = new Size(100, 23);
-            TchLastNameTxb.TabIndex = 1;
+            TeacherLastNameTxb.Location = new Point(277, 16);
+            TeacherLastNameTxb.Name = "TeacherLastNameTxb";
+            TeacherLastNameTxb.Size = new Size(100, 23);
+            TeacherLastNameTxb.TabIndex = 1;
             // 
-            // TchFirstNameTxb
+            // TeacherFirstNameTxb
             // 
-            TchFirstNameTxb.Location = new Point(79, 16);
-            TchFirstNameTxb.Name = "TchFirstNameTxb";
-            TchFirstNameTxb.Size = new Size(100, 23);
-            TchFirstNameTxb.TabIndex = 0;
+            TeacherFirstNameTxb.Location = new Point(79, 16);
+            TeacherFirstNameTxb.Name = "TeacherFirstNameTxb";
+            TeacherFirstNameTxb.Size = new Size(100, 23);
+            TeacherFirstNameTxb.TabIndex = 0;
             // 
             // AssignSubjectTabPage
             // 
@@ -674,6 +675,7 @@
             // 
             // Subject2Combobox
             // 
+            Subject2Combobox.DropDownStyle = ComboBoxStyle.DropDownList;
             Subject2Combobox.FormattingEnabled = true;
             Subject2Combobox.Location = new Point(61, 16);
             Subject2Combobox.Name = "Subject2Combobox";
@@ -838,6 +840,7 @@
             // 
             // Subject1ComboBox
             // 
+            Subject1ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             Subject1ComboBox.FormattingEnabled = true;
             Subject1ComboBox.Location = new Point(53, 20);
             Subject1ComboBox.Name = "Subject1ComboBox";
@@ -904,16 +907,16 @@
         private GroupBox PersonalInfiGroupBox;
         private Label TchLastNameLbl;
         private Label TchFirstNameLbl;
-        private TextBox TchLastNameTxb;
-        private TextBox TchFirstNameTxb;
-        private DateTimePicker TchDOBDatePicker;
+        private TextBox TeacherLastNameTxb;
+        private TextBox TeacherFirstNameTxb;
+        private DateTimePicker TeacherDOBDatePicker;
         private Label TchDOBLbl;
         private Label TchLastNameErrorMsgLbl;
         private Label TchFirstNameErrorMsgLbl;
-        private TextBox TchEmailTxb;
+        private TextBox TeacherEmailTxb;
         private Label TchEmailLbl;
         private Label TchDOBErrorMsgLbl;
-        private TextBox TchAgeTxb;
+        private TextBox TeacherAgeTxb;
         private Label TchAgeLbl;
         private GroupBox TeachingInfoGroupBox;
         private TextBox TeacherSalaryTxb;

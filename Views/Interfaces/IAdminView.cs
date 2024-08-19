@@ -21,6 +21,7 @@ namespace EducationCenter.Views.Interfaces
         WorkingTypeEnum AdminWorkingType { get; set; }
         int AdminWorkingScheduleId { get; set; }
         float AdminWorkingHours { get; set; }
+        decimal AdminSalary { get; set; }
 
         // Properties - Related to Show Form Actions
         string SearchValue { get; set; }
@@ -29,15 +30,16 @@ namespace EducationCenter.Views.Interfaces
         string Message { get; set; }
 
         // Events
-        event EventHandler SearchEvent;
-        event EventHandler AddNewEvent;
-        event EventHandler EditEvent;
-        event EventHandler DeleteEvent;
-        event EventHandler SaveEvent;
-        event EventHandler CancelEvent;
+        event EventHandler SearchAdminEvent;
+        event EventHandler AddNewAdminEvent;
+        event EventHandler EditAdminEvent;
+        event EventHandler DeleteAdminEvent;
+        event EventHandler SaveAdminEvent;
+        event EventHandler CancelAdminEvent;
 
         // Methods
         void SetAdminListBindingSource(BindingSource adminList);
+        void SetWorkingScheduleListBindingSource(BindingSource workingScheduleList);
         void Show();
     }
 }

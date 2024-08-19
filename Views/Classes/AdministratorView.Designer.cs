@@ -49,32 +49,33 @@
             ageDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             workingHoursDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            workingScheduleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             administratorBindingSource = new BindingSource(components);
             AdminDetailTabPage = new TabPage();
             SalaryInforGroupBox = new GroupBox();
-            WorkingTypeComboBox = new ComboBox();
+            AdminWorkingHoursTxb = new TextBox();
+            label2 = new Label();
+            AdminWorkingTypeComboBox = new ComboBox();
             WorkingTypeLbl = new Label();
             label1 = new Label();
-            WorkingScheduleComboBox = new ComboBox();
-            SalaryTxb = new TextBox();
+            AdminWorkingScheduleComboBox = new ComboBox();
+            AdminSalaryTxb = new TextBox();
             SalaryLbl = new Label();
             AdminBasicInfoGroupBox = new GroupBox();
-            GenderComboBox = new ComboBox();
+            AdminGenderComboBox = new ComboBox();
             GenderLbl = new Label();
             CancelAdminBtn = new Button();
             SaveAdminBtn = new Button();
-            AgeTxb = new TextBox();
+            AdminAgeTxb = new TextBox();
             AgeLbl = new Label();
-            DOBDatePicker = new DateTimePicker();
+            AdminDOBDatePicker = new DateTimePicker();
             DOBLbl = new Label();
-            TelephoneTxb = new TextBox();
+            AdminTelephoneTxb = new TextBox();
             TelephoneLbl = new Label();
-            EmailTxb = new TextBox();
+            AdminEmailTxb = new TextBox();
             EmailLbl = new Label();
-            LastNameTxb = new TextBox();
+            AdminLastNameTxb = new TextBox();
             LastNameLbl = new Label();
-            FirstNameTxb = new TextBox();
+            AdminFirstNameTxb = new TextBox();
             FirstNameLbl = new Label();
             panel1.SuspendLayout();
             AdminTabControl.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(CloseAdministratorViewBtn);
             panel1.Controls.Add(AdminTitleLbl);
             panel1.Dock = DockStyle.Top;
@@ -98,6 +100,7 @@
             // 
             // CloseAdministratorViewBtn
             // 
+            CloseAdministratorViewBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CloseAdministratorViewBtn.AutoSize = true;
             CloseAdministratorViewBtn.Cursor = Cursors.Hand;
             CloseAdministratorViewBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -109,6 +112,7 @@
             // 
             // AdminTitleLbl
             // 
+            AdminTitleLbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             AdminTitleLbl.AutoSize = true;
             AdminTitleLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AdminTitleLbl.Location = new Point(308, 34);
@@ -119,13 +123,13 @@
             // 
             // AdminTabControl
             // 
+            AdminTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             AdminTabControl.Controls.Add(AdminListTabPage);
             AdminTabControl.Controls.Add(AdminDetailTabPage);
-            AdminTabControl.Dock = DockStyle.Fill;
             AdminTabControl.Location = new Point(0, 100);
             AdminTabControl.Name = "AdminTabControl";
             AdminTabControl.SelectedIndex = 0;
-            AdminTabControl.Size = new Size(800, 350);
+            AdminTabControl.Size = new Size(797, 350);
             AdminTabControl.TabIndex = 1;
             // 
             // AdminListTabPage
@@ -139,7 +143,7 @@
             AdminListTabPage.Location = new Point(4, 24);
             AdminListTabPage.Name = "AdminListTabPage";
             AdminListTabPage.Padding = new Padding(3);
-            AdminListTabPage.Size = new Size(792, 322);
+            AdminListTabPage.Size = new Size(789, 322);
             AdminListTabPage.TabIndex = 0;
             AdminListTabPage.Text = "Admin List";
             AdminListTabPage.UseVisualStyleBackColor = true;
@@ -173,7 +177,7 @@
             DeleteAdminBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 192);
             DeleteAdminBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
             DeleteAdminBtn.FlatStyle = FlatStyle.Flat;
-            DeleteAdminBtn.Location = new Point(709, 93);
+            DeleteAdminBtn.Location = new Point(706, 93);
             DeleteAdminBtn.Name = "DeleteAdminBtn";
             DeleteAdminBtn.Size = new Size(75, 23);
             DeleteAdminBtn.TabIndex = 3;
@@ -188,7 +192,7 @@
             EditAdminBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 255, 192);
             EditAdminBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
             EditAdminBtn.FlatStyle = FlatStyle.Flat;
-            EditAdminBtn.Location = new Point(709, 64);
+            EditAdminBtn.Location = new Point(706, 64);
             EditAdminBtn.Name = "EditAdminBtn";
             EditAdminBtn.Size = new Size(75, 23);
             EditAdminBtn.TabIndex = 2;
@@ -203,7 +207,7 @@
             AddAdminBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 192);
             AddAdminBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128);
             AddAdminBtn.FlatStyle = FlatStyle.Flat;
-            AddAdminBtn.Location = new Point(709, 35);
+            AddAdminBtn.Location = new Point(706, 35);
             AddAdminBtn.Name = "AddAdminBtn";
             AddAdminBtn.Size = new Size(75, 23);
             AddAdminBtn.TabIndex = 1;
@@ -220,12 +224,12 @@
             AdminListDgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AdminListDgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             AdminListDgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AdminListDgv.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, telephoneDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn, workingHoursDataGridViewTextBoxColumn, workingScheduleDataGridViewTextBoxColumn });
+            AdminListDgv.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, telephoneDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, ageDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn, workingHoursDataGridViewTextBoxColumn });
             AdminListDgv.DataSource = administratorBindingSource;
             AdminListDgv.Location = new Point(6, 35);
             AdminListDgv.Name = "AdminListDgv";
             AdminListDgv.ReadOnly = true;
-            AdminListDgv.Size = new Size(697, 279);
+            AdminListDgv.Size = new Size(694, 279);
             AdminListDgv.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -291,13 +295,6 @@
             workingHoursDataGridViewTextBoxColumn.Name = "workingHoursDataGridViewTextBoxColumn";
             workingHoursDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // workingScheduleDataGridViewTextBoxColumn
-            // 
-            workingScheduleDataGridViewTextBoxColumn.DataPropertyName = "WorkingSchedule";
-            workingScheduleDataGridViewTextBoxColumn.HeaderText = "WorkingSchedule";
-            workingScheduleDataGridViewTextBoxColumn.Name = "workingScheduleDataGridViewTextBoxColumn";
-            workingScheduleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // administratorBindingSource
             // 
             administratorBindingSource.DataSource = typeof(DataLayer.Entities.Administrators.Administrator);
@@ -309,33 +306,54 @@
             AdminDetailTabPage.Location = new Point(4, 24);
             AdminDetailTabPage.Name = "AdminDetailTabPage";
             AdminDetailTabPage.Padding = new Padding(3);
-            AdminDetailTabPage.Size = new Size(792, 322);
+            AdminDetailTabPage.Size = new Size(789, 322);
             AdminDetailTabPage.TabIndex = 1;
             AdminDetailTabPage.Text = "Admin Detail";
             AdminDetailTabPage.UseVisualStyleBackColor = true;
             // 
             // SalaryInforGroupBox
             // 
-            SalaryInforGroupBox.Controls.Add(WorkingTypeComboBox);
+            SalaryInforGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            SalaryInforGroupBox.Controls.Add(AdminWorkingHoursTxb);
+            SalaryInforGroupBox.Controls.Add(label2);
+            SalaryInforGroupBox.Controls.Add(AdminWorkingTypeComboBox);
             SalaryInforGroupBox.Controls.Add(WorkingTypeLbl);
             SalaryInforGroupBox.Controls.Add(label1);
-            SalaryInforGroupBox.Controls.Add(WorkingScheduleComboBox);
-            SalaryInforGroupBox.Controls.Add(SalaryTxb);
+            SalaryInforGroupBox.Controls.Add(AdminWorkingScheduleComboBox);
+            SalaryInforGroupBox.Controls.Add(AdminSalaryTxb);
             SalaryInforGroupBox.Controls.Add(SalaryLbl);
             SalaryInforGroupBox.Location = new Point(458, 6);
             SalaryInforGroupBox.Name = "SalaryInforGroupBox";
-            SalaryInforGroupBox.Size = new Size(331, 139);
+            SalaryInforGroupBox.Size = new Size(325, 185);
             SalaryInforGroupBox.TabIndex = 2;
             SalaryInforGroupBox.TabStop = false;
             SalaryInforGroupBox.Text = "Salary Information";
             // 
-            // WorkingTypeComboBox
+            // AdminWorkingHoursTxb
             // 
-            WorkingTypeComboBox.FormattingEnabled = true;
-            WorkingTypeComboBox.Location = new Point(121, 102);
-            WorkingTypeComboBox.Name = "WorkingTypeComboBox";
-            WorkingTypeComboBox.Size = new Size(121, 23);
-            WorkingTypeComboBox.TabIndex = 5;
+            AdminWorkingHoursTxb.Location = new Point(121, 136);
+            AdminWorkingHoursTxb.Name = "AdminWorkingHoursTxb";
+            AdminWorkingHoursTxb.Size = new Size(121, 23);
+            AdminWorkingHoursTxb.TabIndex = 7;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(6, 139);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Working Hours";
+            // 
+            // AdminWorkingTypeComboBox
+            // 
+            AdminWorkingTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AdminWorkingTypeComboBox.FormattingEnabled = true;
+            AdminWorkingTypeComboBox.Location = new Point(121, 102);
+            AdminWorkingTypeComboBox.Name = "AdminWorkingTypeComboBox";
+            AdminWorkingTypeComboBox.Size = new Size(121, 23);
+            AdminWorkingTypeComboBox.TabIndex = 5;
             // 
             // WorkingTypeLbl
             // 
@@ -357,20 +375,21 @@
             label1.TabIndex = 3;
             label1.Text = "Working Schedule";
             // 
-            // WorkingScheduleComboBox
+            // AdminWorkingScheduleComboBox
             // 
-            WorkingScheduleComboBox.FormattingEnabled = true;
-            WorkingScheduleComboBox.Location = new Point(121, 67);
-            WorkingScheduleComboBox.Name = "WorkingScheduleComboBox";
-            WorkingScheduleComboBox.Size = new Size(121, 23);
-            WorkingScheduleComboBox.TabIndex = 2;
+            AdminWorkingScheduleComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AdminWorkingScheduleComboBox.FormattingEnabled = true;
+            AdminWorkingScheduleComboBox.Location = new Point(121, 67);
+            AdminWorkingScheduleComboBox.Name = "AdminWorkingScheduleComboBox";
+            AdminWorkingScheduleComboBox.Size = new Size(121, 23);
+            AdminWorkingScheduleComboBox.TabIndex = 2;
             // 
-            // SalaryTxb
+            // AdminSalaryTxb
             // 
-            SalaryTxb.Location = new Point(52, 22);
-            SalaryTxb.Name = "SalaryTxb";
-            SalaryTxb.Size = new Size(121, 23);
-            SalaryTxb.TabIndex = 1;
+            AdminSalaryTxb.Location = new Point(52, 22);
+            AdminSalaryTxb.Name = "AdminSalaryTxb";
+            AdminSalaryTxb.Size = new Size(100, 23);
+            AdminSalaryTxb.TabIndex = 1;
             // 
             // SalaryLbl
             // 
@@ -384,21 +403,21 @@
             // 
             // AdminBasicInfoGroupBox
             // 
-            AdminBasicInfoGroupBox.Controls.Add(GenderComboBox);
+            AdminBasicInfoGroupBox.Controls.Add(AdminGenderComboBox);
             AdminBasicInfoGroupBox.Controls.Add(GenderLbl);
             AdminBasicInfoGroupBox.Controls.Add(CancelAdminBtn);
             AdminBasicInfoGroupBox.Controls.Add(SaveAdminBtn);
-            AdminBasicInfoGroupBox.Controls.Add(AgeTxb);
+            AdminBasicInfoGroupBox.Controls.Add(AdminAgeTxb);
             AdminBasicInfoGroupBox.Controls.Add(AgeLbl);
-            AdminBasicInfoGroupBox.Controls.Add(DOBDatePicker);
+            AdminBasicInfoGroupBox.Controls.Add(AdminDOBDatePicker);
             AdminBasicInfoGroupBox.Controls.Add(DOBLbl);
-            AdminBasicInfoGroupBox.Controls.Add(TelephoneTxb);
+            AdminBasicInfoGroupBox.Controls.Add(AdminTelephoneTxb);
             AdminBasicInfoGroupBox.Controls.Add(TelephoneLbl);
-            AdminBasicInfoGroupBox.Controls.Add(EmailTxb);
+            AdminBasicInfoGroupBox.Controls.Add(AdminEmailTxb);
             AdminBasicInfoGroupBox.Controls.Add(EmailLbl);
-            AdminBasicInfoGroupBox.Controls.Add(LastNameTxb);
+            AdminBasicInfoGroupBox.Controls.Add(AdminLastNameTxb);
             AdminBasicInfoGroupBox.Controls.Add(LastNameLbl);
-            AdminBasicInfoGroupBox.Controls.Add(FirstNameTxb);
+            AdminBasicInfoGroupBox.Controls.Add(AdminFirstNameTxb);
             AdminBasicInfoGroupBox.Controls.Add(FirstNameLbl);
             AdminBasicInfoGroupBox.Location = new Point(6, 6);
             AdminBasicInfoGroupBox.Name = "AdminBasicInfoGroupBox";
@@ -407,13 +426,14 @@
             AdminBasicInfoGroupBox.TabStop = false;
             AdminBasicInfoGroupBox.Text = "Basic Information";
             // 
-            // GenderComboBox
+            // AdminGenderComboBox
             // 
-            GenderComboBox.FormattingEnabled = true;
-            GenderComboBox.Location = new Point(289, 162);
-            GenderComboBox.Name = "GenderComboBox";
-            GenderComboBox.Size = new Size(144, 23);
-            GenderComboBox.TabIndex = 15;
+            AdminGenderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AdminGenderComboBox.FormattingEnabled = true;
+            AdminGenderComboBox.Location = new Point(289, 162);
+            AdminGenderComboBox.Name = "AdminGenderComboBox";
+            AdminGenderComboBox.Size = new Size(144, 23);
+            AdminGenderComboBox.TabIndex = 15;
             // 
             // GenderLbl
             // 
@@ -453,13 +473,13 @@
             SaveAdminBtn.Text = "Save";
             SaveAdminBtn.UseVisualStyleBackColor = false;
             // 
-            // AgeTxb
+            // AdminAgeTxb
             // 
-            AgeTxb.Location = new Point(79, 162);
-            AgeTxb.Name = "AgeTxb";
-            AgeTxb.ReadOnly = true;
-            AgeTxb.Size = new Size(133, 23);
-            AgeTxb.TabIndex = 11;
+            AdminAgeTxb.Location = new Point(79, 162);
+            AdminAgeTxb.Name = "AdminAgeTxb";
+            AdminAgeTxb.ReadOnly = true;
+            AdminAgeTxb.Size = new Size(133, 23);
+            AdminAgeTxb.TabIndex = 11;
             // 
             // AgeLbl
             // 
@@ -471,12 +491,12 @@
             AgeLbl.TabIndex = 10;
             AgeLbl.Text = "Age";
             // 
-            // DOBDatePicker
+            // AdminDOBDatePicker
             // 
-            DOBDatePicker.Location = new Point(94, 118);
-            DOBDatePicker.Name = "DOBDatePicker";
-            DOBDatePicker.Size = new Size(214, 23);
-            DOBDatePicker.TabIndex = 9;
+            AdminDOBDatePicker.Location = new Point(94, 118);
+            AdminDOBDatePicker.Name = "AdminDOBDatePicker";
+            AdminDOBDatePicker.Size = new Size(214, 23);
+            AdminDOBDatePicker.TabIndex = 9;
             // 
             // DOBLbl
             // 
@@ -488,12 +508,12 @@
             DOBLbl.TabIndex = 8;
             DOBLbl.Text = "Date Of Birth";
             // 
-            // TelephoneTxb
+            // AdminTelephoneTxb
             // 
-            TelephoneTxb.Location = new Point(289, 70);
-            TelephoneTxb.Name = "TelephoneTxb";
-            TelephoneTxb.Size = new Size(144, 23);
-            TelephoneTxb.TabIndex = 7;
+            AdminTelephoneTxb.Location = new Point(289, 70);
+            AdminTelephoneTxb.Name = "AdminTelephoneTxb";
+            AdminTelephoneTxb.Size = new Size(144, 23);
+            AdminTelephoneTxb.TabIndex = 7;
             // 
             // TelephoneLbl
             // 
@@ -505,12 +525,12 @@
             TelephoneLbl.TabIndex = 6;
             TelephoneLbl.Text = "Telephone";
             // 
-            // EmailTxb
+            // AdminEmailTxb
             // 
-            EmailTxb.Location = new Point(79, 70);
-            EmailTxb.Name = "EmailTxb";
-            EmailTxb.Size = new Size(133, 23);
-            EmailTxb.TabIndex = 5;
+            AdminEmailTxb.Location = new Point(79, 70);
+            AdminEmailTxb.Name = "AdminEmailTxb";
+            AdminEmailTxb.Size = new Size(133, 23);
+            AdminEmailTxb.TabIndex = 5;
             // 
             // EmailLbl
             // 
@@ -522,12 +542,12 @@
             EmailLbl.TabIndex = 4;
             EmailLbl.Text = "Email";
             // 
-            // LastNameTxb
+            // AdminLastNameTxb
             // 
-            LastNameTxb.Location = new Point(289, 22);
-            LastNameTxb.Name = "LastNameTxb";
-            LastNameTxb.Size = new Size(144, 23);
-            LastNameTxb.TabIndex = 3;
+            AdminLastNameTxb.Location = new Point(289, 22);
+            AdminLastNameTxb.Name = "AdminLastNameTxb";
+            AdminLastNameTxb.Size = new Size(144, 23);
+            AdminLastNameTxb.TabIndex = 3;
             // 
             // LastNameLbl
             // 
@@ -539,12 +559,12 @@
             LastNameLbl.TabIndex = 2;
             LastNameLbl.Text = "Last Name";
             // 
-            // FirstNameTxb
+            // AdminFirstNameTxb
             // 
-            FirstNameTxb.Location = new Point(79, 22);
-            FirstNameTxb.Name = "FirstNameTxb";
-            FirstNameTxb.Size = new Size(133, 23);
-            FirstNameTxb.TabIndex = 1;
+            AdminFirstNameTxb.Location = new Point(79, 22);
+            AdminFirstNameTxb.Name = "AdminFirstNameTxb";
+            AdminFirstNameTxb.Size = new Size(133, 23);
+            AdminFirstNameTxb.TabIndex = 1;
             // 
             // FirstNameLbl
             // 
@@ -595,29 +615,32 @@
         private Button SearchAdminBtn;
         private TextBox SearchAdminTxb;
         private GroupBox AdminBasicInfoGroupBox;
-        private ComboBox GenderComboBox;
+        private ComboBox AdminGenderComboBox;
         private Label GenderLbl;
         private Button CancelAdminBtn;
         private Button SaveAdminBtn;
-        private TextBox AgeTxb;
+        private TextBox AdminAgeTxb;
         private Label AgeLbl;
-        private DateTimePicker DOBDatePicker;
+        private DateTimePicker AdminDOBDatePicker;
         private Label DOBLbl;
-        private TextBox TelephoneTxb;
+        private TextBox AdminTelephoneTxb;
         private Label TelephoneLbl;
-        private TextBox EmailTxb;
+        private TextBox AdminEmailTxb;
         private Label EmailLbl;
-        private TextBox LastNameTxb;
+        private TextBox AdminLastNameTxb;
         private Label LastNameLbl;
-        private TextBox FirstNameTxb;
+        private TextBox AdminFirstNameTxb;
         private Label FirstNameLbl;
         private GroupBox SalaryInforGroupBox;
-        private ComboBox WorkingTypeComboBox;
+        private ComboBox AdminWorkingTypeComboBox;
         private Label WorkingTypeLbl;
         private Label label1;
-        private ComboBox WorkingScheduleComboBox;
-        private TextBox SalaryTxb;
+        private ComboBox AdminWorkingScheduleComboBox;
+        private TextBox AdminSalaryTxb;
         private Label SalaryLbl;
+        private BindingSource administratorBindingSource;
+        private TextBox AdminWorkingHoursTxb;
+        private Label label2;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
@@ -627,7 +650,5 @@
         private DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn workingHoursDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn workingScheduleDataGridViewTextBoxColumn;
-        private BindingSource administratorBindingSource;
     }
 }

@@ -2,6 +2,7 @@
 using DataLayer.Entities.Students;
 using DataLayer.Repositories.Interfaces;
 using EducationCenter.Views.Interfaces;
+using Helper.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,25 +16,29 @@ namespace EducationCenter.Presenters.Classes
         private IAdminView view;
         private IAdministratorRepository repository;
         private BindingSource adminsBindingSource;
+        private BindingSource workingSchedulesBindingSource;
         private IEnumerable<Administrator> adminList;
+        private IEnumerable<WorkingSchedule> workingScheduleList;
 
         //Constructor
         public AdministratorPresenter(IAdminView view, IAdministratorRepository repository)
         {
             this.adminsBindingSource = new BindingSource();
+            this.workingSchedulesBindingSource = new BindingSource();
             this.view = view;
             this.repository = repository;
             //Subscribe event handler methods to view events
-            this.view.SearchEvent += SearchAdmin;
-            this.view.AddNewEvent += AddNewAdmin;
-            this.view.EditEvent += LoadSelectedAdminToEdit;
-            this.view.DeleteEvent += DeleteSelectedAdmin;
-            this.view.SaveEvent += SaveAdmin;
-            this.view.CancelEvent += CancelAction;
+            this.view.SearchAdminEvent += SearchAdmin;
+            this.view.AddNewAdminEvent += AddNewAdmin;
+            this.view.EditAdminEvent += LoadSelectedAdminToEdit;
+            this.view.DeleteAdminEvent += DeleteSelectedAdmin;
+            this.view.SaveAdminEvent += SaveAdmin;
+            this.view.CancelAdminEvent += CancelAction;
             //Set teachers bindind source
             this.view.SetAdminListBindingSource(adminsBindingSource);
             //Load teacher list view
             LoadAllAdminList();
+            LoadAllWorkingSchedules();
             //Show view
             this.view.Show();
         }
@@ -43,6 +48,11 @@ namespace EducationCenter.Presenters.Classes
         {
             adminList = repository.GetAll();
             adminsBindingSource.DataSource = adminList;//Set data source.
+        }
+        private void LoadAllWorkingSchedules()
+        {
+            workingScheduleList = repository.GetAllWorkingSchedules();
+            workingSchedulesBindingSource.DataSource = workingScheduleList;//Set data source.
         }
         private void SearchAdmin(object sender, EventArgs e)
         {
@@ -54,6 +64,7 @@ namespace EducationCenter.Presenters.Classes
         }
         private void AddNewAdmin(object sender, EventArgs e)
         {
+            this.view.SetWorkingScheduleListBindingSource(workingSchedulesBindingSource);
             view.IsEdit = false;
         }
         private void LoadSelectedAdminToEdit(object sender, EventArgs e)
@@ -64,6 +75,7 @@ namespace EducationCenter.Presenters.Classes
                 view.IsEdit = false;
                 return;
             }
+            this.view.SetWorkingScheduleListBindingSource(workingSchedulesBindingSource);
             view.AdminId = administrator.Id;
             view.AdminFirstName = administrator.FirstName;
             view.AdminLastName = administrator.LastName;
@@ -72,6 +84,10 @@ namespace EducationCenter.Presenters.Classes
             view.AdminDateOfBirth = administrator.DateOfBirth;
             view.AdminAge = administrator.Age;
             view.AdminTelephone = administrator.Telephone;
+            view.AdminSalary = administrator.Salary;
+            view.AdminWorkingHours = administrator.WorkingHours;
+            view.AdminWorkingScheduleId = administrator.WorkingScheduleId;
+            view.AdminWorkingType = (WorkingTypeEnum)administrator.WorkingType;
             view.IsEdit = true;
         }
         private void SaveAdmin(object sender, EventArgs e)
@@ -85,6 +101,10 @@ namespace EducationCenter.Presenters.Classes
                 Email = view.AdminEmail,
                 Gender = view.AdminGender,
                 Telephone = view.AdminTelephone,
+                Salary = view.AdminSalary,
+                WorkingHours = view.AdminWorkingHours,
+                WorkingScheduleId = view.AdminWorkingScheduleId,
+                WorkingType = view.AdminWorkingType,
             };
             try
             {
@@ -119,6 +139,11 @@ namespace EducationCenter.Presenters.Classes
             view.AdminDateOfBirth = DateOnly.FromDateTime(DateTime.Now);
             view.AdminAge = 0;
             view.AdminGender = 0;
+            view.AdminSalary = 0;
+            view.AdminTelephone = "";
+            view.AdminWorkingHours = 0;
+            view.AdminWorkingScheduleId = 0;
+            view.AdminWorkingType = 0;
         }
 
         private void CancelAction(object sender, EventArgs e)
@@ -129,7 +154,7 @@ namespace EducationCenter.Presenters.Classes
         {
             try
             {
-                var administrator = (Administrator)adminsBindingSource.Current;
+                Administrator administrator = (Administrator)adminsBindingSource.Current;
                 int id = repository.Delete(administrator);
                 view.IsSuccessfull = true;
                 view.Message = $"administrator with Id={id} deleted successfully";

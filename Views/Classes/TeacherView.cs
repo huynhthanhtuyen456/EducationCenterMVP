@@ -34,11 +34,11 @@ namespace EducationCenter
         {
             /* Start Emitting Event Related to Teacher Record */
             //Search
-            SearchTeacherBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            SearchTeacherBtn.Click += delegate { SearchTeacherEvent?.Invoke(this, EventArgs.Empty); };
             TchSearchValTxb.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                    SearchTeacherEvent?.Invoke(this, EventArgs.Empty);
             };
             //Add new
             AddTeacherBtn.Click += delegate
@@ -46,22 +46,22 @@ namespace EducationCenter
                 TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                 TeacherTabControl.TabPages.Remove(TeacherListTabPage);
                 TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                AddNewTeacherEvent?.Invoke(this, EventArgs.Empty);
                 TeacherDetailTabPage.Text = "Add new teacher";
             };
             //Edit
             EditTeacherBtn.Click += delegate
             {
+                EditTeacherEvent?.Invoke(this, EventArgs.Empty);
                 TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                 TeacherTabControl.TabPages.Remove(TeacherListTabPage);
                 TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
-                EditEvent?.Invoke(this, EventArgs.Empty);
                 TeacherDetailTabPage.Text = "Edit Teacher";
             };
             //Save changes
             TchSaveBtn.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveTeacherEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessfull)
                 {
                     TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
@@ -73,7 +73,7 @@ namespace EducationCenter
             //Cancel
             TchCancelBtn.Click += delegate
             {
-                CancelEvent?.Invoke(this, EventArgs.Empty);
+                CancelTeacherEvent?.Invoke(this, EventArgs.Empty);
                 TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                 TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
                 TeacherTabControl.TabPages.Add(TeacherListTabPage);
@@ -85,7 +85,7 @@ namespace EducationCenter
                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    DeleteTeacherEvent?.Invoke(this, EventArgs.Empty);
                     MessageBox.Show(Message);
                 }
             };
@@ -106,20 +106,20 @@ namespace EducationCenter
 
         public string TeacherFirstName
         {
-            get { return TchFirstNameTxb.Text; }
-            set { TchFirstNameTxb.Text = value; }
+            get { return TeacherFirstNameTxb.Text; }
+            set { TeacherFirstNameTxb.Text = value; }
         }
         public string TeacherLastName
         {
-            get { return TchLastNameTxb.Text; }
-            set { TchLastNameTxb.Text = value; }
+            get { return TeacherLastNameTxb.Text; }
+            set { TeacherLastNameTxb.Text = value; }
         }
         public DateOnly TeacherDateOfBirth
         {
-            get { return DateOnly.FromDateTime(TchDOBDatePicker.Value); }
+            get { return DateOnly.FromDateTime(TeacherDOBDatePicker.Value); }
             set
             {
-                TchDOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
+                TeacherDOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
             }
         }
         public GenderEnum TeacherGender
@@ -132,16 +132,16 @@ namespace EducationCenter
         }
         public int TeacherAge
         {
-            get { return Int32.Parse(TchAgeTxb.Text); }
+            get { return Int32.Parse(TeacherAgeTxb.Text); }
             set
             {
-                TchAgeTxb.Text = value.ToString();
+                TeacherAgeTxb.Text = value.ToString();
             }
         }
         public string TeacherEmail
         {
-            get { return TchEmailTxb.Text; }
-            set { TchEmailTxb.Text = value; }
+            get { return TeacherEmailTxb.Text; }
+            set { TeacherEmailTxb.Text = value; }
         }
         public decimal TeacherSalary
         {
@@ -176,12 +176,12 @@ namespace EducationCenter
         }
 
         /* Definition Event Handler related to Teacher Entity */
-        public event EventHandler SearchEvent;
-        public event EventHandler AddNewEvent;
-        public event EventHandler EditEvent;
-        public event EventHandler DeleteEvent;
-        public event EventHandler SaveEvent;
-        public event EventHandler CancelEvent;
+        public event EventHandler SearchTeacherEvent;
+        public event EventHandler AddNewTeacherEvent;
+        public event EventHandler EditTeacherEvent;
+        public event EventHandler DeleteTeacherEvent;
+        public event EventHandler SaveTeacherEvent;
+        public event EventHandler CancelTeacherEvent;
         /* End Definition Event Handler related to Teacher Entity */
 
         /* Start Definition Event Handler related to assign Subject To Teachers */

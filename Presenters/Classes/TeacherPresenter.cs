@@ -25,12 +25,12 @@ namespace EducationCenter.Presenters
             this.view = view;
             this.repository = repository;
             //Subscribe event handler methods to view events
-            this.view.SearchEvent += SearchTeacher;
-            this.view.AddNewEvent += AddNewTeacher;
-            this.view.EditEvent += LoadSelectedTeacherToEdit;
-            this.view.DeleteEvent += DeleteSelectedTeacher;
-            this.view.SaveEvent += SaveTeacher;
-            this.view.CancelEvent += CancelAction;
+            this.view.SearchTeacherEvent += SearchTeacher;
+            this.view.AddNewTeacherEvent += AddNewTeacher;
+            this.view.EditTeacherEvent += LoadSelectedTeacherToEdit;
+            this.view.DeleteTeacherEvent += DeleteSelectedTeacher;
+            this.view.SaveTeacherEvent += SaveTeacher;
+            this.view.CancelTeacherEvent += CancelAction;
             //Set teachers bindind source
             this.view.SetTeacherListBindingSource(teachersBindingSource);
             //Load teacher list view
