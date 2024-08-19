@@ -29,16 +29,16 @@ namespace EducationCenter.Views.Classes
         private void AssociateAndRaiseViewEvents()
         {
             //Search
-            SearchSubjectBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            SearchSubjectBtn.Click += delegate { SearchSubjectEvent?.Invoke(this, EventArgs.Empty); };
             SearchSubjectTxb.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                    SearchSubjectEvent?.Invoke(this, EventArgs.Empty);
             };
             //Add new
             AddSubjectBtn.Click += delegate
             {
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                AddNewSubjectEvent?.Invoke(this, EventArgs.Empty);
                 SubjectTabControl.TabPages.Remove(SubjectListTabPage);
                 SubjectTabControl.TabPages.Add(SubjectDetailTabPage);
                 SubjectDetailTabPage.Text = "Add new subject";
@@ -46,18 +46,19 @@ namespace EducationCenter.Views.Classes
             //Edit
             EditSubjectBtn.Click += delegate
             {
+                EditSubjectEvent?.Invoke(this, EventArgs.Empty);
                 SubjectTabControl.TabPages.Remove(SubjectListTabPage);
                 SubjectTabControl.TabPages.Add(SubjectDetailTabPage);
                 SubjectDetailTabPage.Text = "Edit Subject";
-                EditEvent?.Invoke(this, EventArgs.Empty);
             };
             //Save changes
             SaveSubjectBtn.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveSubjectEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessfull)
                 {
                     SubjectTabControl.TabPages.Remove(SubjectDetailTabPage);
+                    SubjectTabControl.TabPages.Remove(SubjectListTabPage);
                     SubjectTabControl.TabPages.Add(SubjectListTabPage);
                 }
                 MessageBox.Show(Message);
@@ -65,7 +66,7 @@ namespace EducationCenter.Views.Classes
             //Cancel
             CancelSaveSubjectBtn.Click += delegate
             {
-                CancelEvent?.Invoke(this, EventArgs.Empty);
+                CancelSubjectEvent?.Invoke(this, EventArgs.Empty);
                 SubjectTabControl.TabPages.Remove(SubjectDetailTabPage);
                 SubjectTabControl.TabPages.Add(SubjectListTabPage);
             };
@@ -76,7 +77,7 @@ namespace EducationCenter.Views.Classes
                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    DeleteSubjectEvent?.Invoke(this, EventArgs.Empty);
                     MessageBox.Show(Message);
                 }
             };
@@ -119,12 +120,12 @@ namespace EducationCenter.Views.Classes
             set { message = value; }
         }
 
-        public event EventHandler SearchEvent;
-        public event EventHandler AddNewEvent;
-        public event EventHandler EditEvent;
-        public event EventHandler DeleteEvent;
-        public event EventHandler SaveEvent;
-        public event EventHandler CancelEvent;
+        public event EventHandler SearchSubjectEvent;
+        public event EventHandler AddNewSubjectEvent;
+        public event EventHandler EditSubjectEvent;
+        public event EventHandler DeleteSubjectEvent;
+        public event EventHandler SaveSubjectEvent;
+        public event EventHandler CancelSubjectEvent;
 
         public void SetSubjectListBindingSource(BindingSource subjectList)
         {
@@ -135,6 +136,10 @@ namespace EducationCenter.Views.Classes
         private static SubjectView? instance;
         public static SubjectView GetInstance(Form parentContainer)
         {
+            foreach (Form c in parentContainer.MdiChildren)
+            {
+                c.Close();
+            }
             if (instance == null || instance.IsDisposed)
             {
                 instance = new SubjectView();

@@ -26,12 +26,12 @@ namespace EducationCenter.Presenters.Classes
             this.view = view;
             this.repository = repository;
             //Subscribe event handler methods to view events
-            this.view.SearchEvent += SearchSubject;
-            this.view.AddNewEvent += AddNewSubject;
-            this.view.EditEvent += LoadSelectedSubjectToEdit;
-            this.view.DeleteEvent += DeleteSelectedSubject;
-            this.view.SaveEvent += SaveSubject;
-            this.view.CancelEvent += CancelAction;
+            this.view.SearchSubjectEvent += SearchSubject;
+            this.view.AddNewSubjectEvent += AddNewSubject;
+            this.view.EditSubjectEvent += LoadSelectedSubjectToEdit;
+            this.view.DeleteSubjectEvent += DeleteSelectedSubject;
+            this.view.SaveSubjectEvent += SaveSubject;
+            this.view.CancelSubjectEvent += CancelAction;
             //Set subjects bindind source
             this.view.SetSubjectListBindingSource(subjectsBindingSource);
             //Load subjects list view
@@ -122,7 +122,7 @@ namespace EducationCenter.Presenters.Classes
                 view.Message = $"Subject with Id={id} deleted successfully";
                 LoadAllSubjectList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 view.IsSuccessfull = false;
                 view.Message = "An error ocurred, could not delete subject";

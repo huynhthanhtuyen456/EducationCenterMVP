@@ -26,12 +26,12 @@ namespace EducationCenter.Views.Interfaces
         string Message { get; set; }
 
         // Events
-        event EventHandler SearchEvent;
-        event EventHandler AddNewEvent;
-        event EventHandler EditEvent;
-        event EventHandler DeleteEvent;
-        event EventHandler SaveEvent;
-        event EventHandler CancelEvent;
+        event EventHandler SearchStudentEvent;
+        event EventHandler AddNewStudentEvent;
+        event EventHandler EditStudentEvent;
+        event EventHandler DeleteStudentEvent;
+        event EventHandler SaveStudentEvent;
+        event EventHandler CancelStudentEvent;
 
         // Methods
         void SetStudentListBindingSource(BindingSource studentList);

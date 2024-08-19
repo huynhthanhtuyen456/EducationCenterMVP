@@ -160,7 +160,7 @@ namespace EducationCenter.Presenters.Classes
                 view.Message = $"administrator with Id={id} deleted successfully";
                 LoadAllAdminList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 view.IsSuccessfull = false;
                 view.Message = "An error ocurred, could not delete administrator! Cannot find administrator.";

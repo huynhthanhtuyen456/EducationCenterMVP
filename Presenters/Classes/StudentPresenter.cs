@@ -26,12 +26,12 @@ namespace EducationCenter.Presenters.Classes
             this.view = view;
             this.repository = repository;
             //Subscribe event handler methods to view events
-            this.view.SearchEvent += SearchStudent;
-            this.view.AddNewEvent += AddNewStudent;
-            this.view.EditEvent += LoadSelectedStudentToEdit;
-            this.view.DeleteEvent += DeleteSelectedStudent;
-            this.view.SaveEvent += SaveStudent;
-            this.view.CancelEvent += CancelAction;
+            this.view.SearchStudentEvent += SearchStudent;
+            this.view.AddNewStudentEvent += AddNewStudent;
+            this.view.EditStudentEvent += LoadSelectedStudentToEdit;
+            this.view.DeleteStudentEvent += DeleteSelectedStudent;
+            this.view.SaveStudentEvent += SaveStudent;
+            this.view.CancelStudentEvent += CancelAction;
             //Set teachers bindind source
             this.view.SetStudentListBindingSource(studentsBindingSource);
             //Load teacher list view
@@ -137,7 +137,7 @@ namespace EducationCenter.Presenters.Classes
                 view.Message = $"Student with Id={id} deleted successfully";
                 LoadAllStudentList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 view.IsSuccessfull = false;
                 view.Message = "An error ocurred, could not delete student! Cannot find student.";

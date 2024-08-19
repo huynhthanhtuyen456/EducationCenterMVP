@@ -197,6 +197,10 @@ namespace EducationCenter
         private static TeacherView? instance;
         public static TeacherView GetInstance(Form parentContainer)
         {
+            foreach (Form c in parentContainer.MdiChildren)
+            {
+                c.Close();
+            }
             if (instance == null || instance.IsDisposed)
             {
                 instance = new TeacherView();

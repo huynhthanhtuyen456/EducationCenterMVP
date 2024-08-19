@@ -19,12 +19,12 @@ namespace EducationCenter.Views.Interfaces
         string Message { get; set; }
 
         // Events
-        event EventHandler SearchEvent;
-        event EventHandler AddNewEvent;
-        event EventHandler EditEvent;
-        event EventHandler DeleteEvent;
-        event EventHandler SaveEvent;
-        event EventHandler CancelEvent;
+        event EventHandler SearchSubjectEvent;
+        event EventHandler AddNewSubjectEvent;
+        event EventHandler EditSubjectEvent;
+        event EventHandler DeleteSubjectEvent;
+        event EventHandler SaveSubjectEvent;
+        event EventHandler CancelSubjectEvent;
 
         // Methods
         void SetSubjectListBindingSource(BindingSource subjectList);

@@ -25,7 +25,7 @@ namespace EducationCenter.Views.Classes
             AssociateAndRaiseViewEvents();
             StudentTabControl.TabPages.Remove(StudentDetailTabPage);
             //StudentTabControl.TabPages.Remove(AssignSubjectTabPage);
-            GenderComboBox.DataSource = Enum.GetValues(typeof(GenderEnum));
+            StudentGenderComboBox.DataSource = Enum.GetValues(typeof(GenderEnum));
             CloseStudentViewBtn.Click += delegate { this.Close(); };
         }
 
@@ -33,11 +33,11 @@ namespace EducationCenter.Views.Classes
         {
             /* Start Emitting Event Related to Teacher Record */
             //Search
-            SearchStudentBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            SearchStudentBtn.Click += delegate { SearchStudentEvent?.Invoke(this, EventArgs.Empty); };
             SearchStudentTxb.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                    SearchStudentEvent?.Invoke(this, EventArgs.Empty);
             };
             //Add new
             AddStudentBtn.Click += delegate
@@ -45,7 +45,7 @@ namespace EducationCenter.Views.Classes
                 StudentTabControl.TabPages.Remove(StudentListTabPage);
                 StudentTabControl.TabPages.Remove(StudentDetailTabPage);
                 StudentTabControl.TabPages.Add(StudentDetailTabPage);
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                AddNewStudentEvent?.Invoke(this, EventArgs.Empty);
                 StudentDetailTabPage.Text = "Add new student";
             };
             //Edit
@@ -54,7 +54,7 @@ namespace EducationCenter.Views.Classes
                 StudentTabControl.TabPages.Remove(StudentListTabPage);
                 StudentTabControl.TabPages.Remove(StudentDetailTabPage);
                 StudentTabControl.TabPages.Add(StudentDetailTabPage);
-                EditEvent?.Invoke(this, EventArgs.Empty);
+                EditStudentEvent?.Invoke(this, EventArgs.Empty);
                 StudentDetailTabPage.Text = "Edit Student";
                 if (!isEdit)
                 {
@@ -67,7 +67,7 @@ namespace EducationCenter.Views.Classes
             //Save changes
             SaveStudentBtn.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveStudentEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessfull)
                 {
                     StudentTabControl.TabPages.Remove(StudentListTabPage);
@@ -79,7 +79,7 @@ namespace EducationCenter.Views.Classes
             //Cancel
             CancelStudentBtn.Click += delegate
             {
-                CancelEvent?.Invoke(this, EventArgs.Empty);
+                CancelStudentEvent?.Invoke(this, EventArgs.Empty);
                 StudentTabControl.TabPages.Remove(StudentListTabPage);
                 StudentTabControl.TabPages.Remove(StudentDetailTabPage);
                 StudentTabControl.TabPages.Add(StudentListTabPage);
@@ -91,7 +91,7 @@ namespace EducationCenter.Views.Classes
                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    DeleteStudentEvent?.Invoke(this, EventArgs.Empty);
                     MessageBox.Show(Message);
                 }
             };
@@ -112,47 +112,47 @@ namespace EducationCenter.Views.Classes
 
         public string StudentFirstName
         {
-            get { return FirstNameTxb.Text; }
-            set { FirstNameTxb.Text = value; }
+            get { return StudentFirstNameTxb.Text; }
+            set { StudentFirstNameTxb.Text = value; }
         }
         public string StudentLastName
         {
-            get { return LastNameTxb.Text; }
-            set { LastNameTxb.Text = value; }
+            get { return StudentLastNameTxb.Text; }
+            set { StudentLastNameTxb.Text = value; }
         }
         public DateOnly StudentDateOfBirth
         {
-            get { return DateOnly.FromDateTime(DOBDatePicker.Value); }
+            get { return DateOnly.FromDateTime(StudentDOBDatePicker.Value); }
             set
             {
-                DOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
+                StudentDOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
             }
         }
         public GenderEnum StudentGender
         {
-            get { return (GenderEnum)GenderComboBox.SelectedItem; }
+            get { return (GenderEnum)StudentGenderComboBox.SelectedItem; }
             set
             {
-                GenderComboBox.SelectedItem = (GenderEnum)value;
+                StudentGenderComboBox.SelectedItem = (GenderEnum)value;
             }
         }
         public int StudentAge
         {
-            get { return Int32.Parse(AgeTxb.Text); }
+            get { return Int32.Parse(StudentAgeTxb.Text); }
             set
             {
-                AgeTxb.Text = value.ToString();
+                StudentAgeTxb.Text = value.ToString();
             }
         }
         public string StudentEmail
         {
-            get { return EmailTxb.Text; }
-            set { EmailTxb.Text = value; }
+            get { return StudentEmailTxb.Text; }
+            set { StudentEmailTxb.Text = value; }
         }
         public string StudentTelephone
         {
-            get { return TelephoneTxb.Text; }
-            set { TelephoneTxb.Text = value; }
+            get { return StudentTelephoneTxb.Text; }
+            set { StudentTelephoneTxb.Text = value; }
         }
 
         public string SearchValue
@@ -177,12 +177,12 @@ namespace EducationCenter.Views.Classes
         }
 
         /* Definition Event Handler related to Teacher Entity */
-        public event EventHandler SearchEvent;
-        public event EventHandler AddNewEvent;
-        public event EventHandler EditEvent;
-        public event EventHandler DeleteEvent;
-        public event EventHandler SaveEvent;
-        public event EventHandler CancelEvent;
+        public event EventHandler SearchStudentEvent;
+        public event EventHandler AddNewStudentEvent;
+        public event EventHandler EditStudentEvent;
+        public event EventHandler DeleteStudentEvent;
+        public event EventHandler SaveStudentEvent;
+        public event EventHandler CancelStudentEvent;
         /* End Definition Event Handler related to Teacher Entity */
 
         /* Start Definition Event Handler related to assign Subject To Teachers */
@@ -198,6 +198,10 @@ namespace EducationCenter.Views.Classes
         private static StudentView? instance;
         public static StudentView GetInstance(Form parentContainer)
         {
+            foreach (Form c in parentContainer.MdiChildren)
+            {
+                c.Close();
+            }
             if (instance == null || instance.IsDisposed)
             {
                 instance = new StudentView();

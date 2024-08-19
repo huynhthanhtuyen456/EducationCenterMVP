@@ -134,7 +134,7 @@ namespace EducationCenter.Presenters
                 view.Message = $"Teacher with Id={id} deleted successfully";
                 LoadAllTeacherList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {   
                 view.IsSuccessfull = false;
                 view.Message = "An error ocurred, could not delete teacher";

@@ -55,21 +55,21 @@
             StudyingSubjectsDgv = new DataGridView();
             StudiedSubjectsDgv = new DataGridView();
             StudentBasicInfoGroupBox = new GroupBox();
-            GenderComboBox = new ComboBox();
+            StudentGenderComboBox = new ComboBox();
             GenderLbl = new Label();
             CancelStudentBtn = new Button();
             SaveStudentBtn = new Button();
-            AgeTxb = new TextBox();
+            StudentAgeTxb = new TextBox();
             AgeLbl = new Label();
-            DOBDatePicker = new DateTimePicker();
+            StudentDOBDatePicker = new DateTimePicker();
             DOBLbl = new Label();
-            TelephoneTxb = new TextBox();
+            StudentTelephoneTxb = new TextBox();
             TelephoneLbl = new Label();
-            EmailTxb = new TextBox();
+            StudentEmailTxb = new TextBox();
             EmailLbl = new Label();
-            LastNameTxb = new TextBox();
+            StudentLastNameTxb = new TextBox();
             LastNameLbl = new Label();
-            FirstNameTxb = new TextBox();
+            StudentFirstNameTxb = new TextBox();
             label1 = new Label();
             panel1.SuspendLayout();
             StudentTabControl.SuspendLayout();
@@ -354,21 +354,21 @@
             // 
             // StudentBasicInfoGroupBox
             // 
-            StudentBasicInfoGroupBox.Controls.Add(GenderComboBox);
+            StudentBasicInfoGroupBox.Controls.Add(StudentGenderComboBox);
             StudentBasicInfoGroupBox.Controls.Add(GenderLbl);
             StudentBasicInfoGroupBox.Controls.Add(CancelStudentBtn);
             StudentBasicInfoGroupBox.Controls.Add(SaveStudentBtn);
-            StudentBasicInfoGroupBox.Controls.Add(AgeTxb);
+            StudentBasicInfoGroupBox.Controls.Add(StudentAgeTxb);
             StudentBasicInfoGroupBox.Controls.Add(AgeLbl);
-            StudentBasicInfoGroupBox.Controls.Add(DOBDatePicker);
+            StudentBasicInfoGroupBox.Controls.Add(StudentDOBDatePicker);
             StudentBasicInfoGroupBox.Controls.Add(DOBLbl);
-            StudentBasicInfoGroupBox.Controls.Add(TelephoneTxb);
+            StudentBasicInfoGroupBox.Controls.Add(StudentTelephoneTxb);
             StudentBasicInfoGroupBox.Controls.Add(TelephoneLbl);
-            StudentBasicInfoGroupBox.Controls.Add(EmailTxb);
+            StudentBasicInfoGroupBox.Controls.Add(StudentEmailTxb);
             StudentBasicInfoGroupBox.Controls.Add(EmailLbl);
-            StudentBasicInfoGroupBox.Controls.Add(LastNameTxb);
+            StudentBasicInfoGroupBox.Controls.Add(StudentLastNameTxb);
             StudentBasicInfoGroupBox.Controls.Add(LastNameLbl);
-            StudentBasicInfoGroupBox.Controls.Add(FirstNameTxb);
+            StudentBasicInfoGroupBox.Controls.Add(StudentFirstNameTxb);
             StudentBasicInfoGroupBox.Controls.Add(label1);
             StudentBasicInfoGroupBox.Location = new Point(8, 6);
             StudentBasicInfoGroupBox.Name = "StudentBasicInfoGroupBox";
@@ -377,14 +377,14 @@
             StudentBasicInfoGroupBox.TabStop = false;
             StudentBasicInfoGroupBox.Text = "Basic Information";
             // 
-            // GenderComboBox
+            // StudentGenderComboBox
             // 
-            GenderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            GenderComboBox.FormattingEnabled = true;
-            GenderComboBox.Location = new Point(289, 162);
-            GenderComboBox.Name = "GenderComboBox";
-            GenderComboBox.Size = new Size(144, 23);
-            GenderComboBox.TabIndex = 15;
+            StudentGenderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            StudentGenderComboBox.FormattingEnabled = true;
+            StudentGenderComboBox.Location = new Point(289, 162);
+            StudentGenderComboBox.Name = "StudentGenderComboBox";
+            StudentGenderComboBox.Size = new Size(144, 23);
+            StudentGenderComboBox.TabIndex = 15;
             // 
             // GenderLbl
             // 
@@ -424,13 +424,13 @@
             SaveStudentBtn.Text = "Save";
             SaveStudentBtn.UseVisualStyleBackColor = false;
             // 
-            // AgeTxb
+            // StudentAgeTxb
             // 
-            AgeTxb.Location = new Point(79, 162);
-            AgeTxb.Name = "AgeTxb";
-            AgeTxb.ReadOnly = true;
-            AgeTxb.Size = new Size(133, 23);
-            AgeTxb.TabIndex = 11;
+            StudentAgeTxb.Location = new Point(79, 162);
+            StudentAgeTxb.Name = "StudentAgeTxb";
+            StudentAgeTxb.ReadOnly = true;
+            StudentAgeTxb.Size = new Size(133, 23);
+            StudentAgeTxb.TabIndex = 11;
             // 
             // AgeLbl
             // 
@@ -442,12 +442,12 @@
             AgeLbl.TabIndex = 10;
             AgeLbl.Text = "Age";
             // 
-            // DOBDatePicker
+            // StudentDOBDatePicker
             // 
-            DOBDatePicker.Location = new Point(94, 118);
-            DOBDatePicker.Name = "DOBDatePicker";
-            DOBDatePicker.Size = new Size(214, 23);
-            DOBDatePicker.TabIndex = 9;
+            StudentDOBDatePicker.Location = new Point(94, 118);
+            StudentDOBDatePicker.Name = "StudentDOBDatePicker";
+            StudentDOBDatePicker.Size = new Size(214, 23);
+            StudentDOBDatePicker.TabIndex = 9;
             // 
             // DOBLbl
             // 
@@ -459,12 +459,12 @@
             DOBLbl.TabIndex = 8;
             DOBLbl.Text = "Date Of Birth";
             // 
-            // TelephoneTxb
+            // StudentTelephoneTxb
             // 
-            TelephoneTxb.Location = new Point(289, 70);
-            TelephoneTxb.Name = "TelephoneTxb";
-            TelephoneTxb.Size = new Size(144, 23);
-            TelephoneTxb.TabIndex = 7;
+            StudentTelephoneTxb.Location = new Point(289, 70);
+            StudentTelephoneTxb.Name = "StudentTelephoneTxb";
+            StudentTelephoneTxb.Size = new Size(144, 23);
+            StudentTelephoneTxb.TabIndex = 7;
             // 
             // TelephoneLbl
             // 
@@ -476,12 +476,12 @@
             TelephoneLbl.TabIndex = 6;
             TelephoneLbl.Text = "Telephone";
             // 
-            // EmailTxb
+            // StudentEmailTxb
             // 
-            EmailTxb.Location = new Point(79, 70);
-            EmailTxb.Name = "EmailTxb";
-            EmailTxb.Size = new Size(133, 23);
-            EmailTxb.TabIndex = 5;
+            StudentEmailTxb.Location = new Point(79, 70);
+            StudentEmailTxb.Name = "StudentEmailTxb";
+            StudentEmailTxb.Size = new Size(133, 23);
+            StudentEmailTxb.TabIndex = 5;
             // 
             // EmailLbl
             // 
@@ -493,12 +493,12 @@
             EmailLbl.TabIndex = 4;
             EmailLbl.Text = "Email";
             // 
-            // LastNameTxb
+            // StudentLastNameTxb
             // 
-            LastNameTxb.Location = new Point(289, 22);
-            LastNameTxb.Name = "LastNameTxb";
-            LastNameTxb.Size = new Size(144, 23);
-            LastNameTxb.TabIndex = 3;
+            StudentLastNameTxb.Location = new Point(289, 22);
+            StudentLastNameTxb.Name = "StudentLastNameTxb";
+            StudentLastNameTxb.Size = new Size(144, 23);
+            StudentLastNameTxb.TabIndex = 3;
             // 
             // LastNameLbl
             // 
@@ -510,12 +510,12 @@
             LastNameLbl.TabIndex = 2;
             LastNameLbl.Text = "Last Name";
             // 
-            // FirstNameTxb
+            // StudentFirstNameTxb
             // 
-            FirstNameTxb.Location = new Point(79, 22);
-            FirstNameTxb.Name = "FirstNameTxb";
-            FirstNameTxb.Size = new Size(133, 23);
-            FirstNameTxb.TabIndex = 1;
+            StudentFirstNameTxb.Location = new Point(79, 22);
+            StudentFirstNameTxb.Name = "StudentFirstNameTxb";
+            StudentFirstNameTxb.Size = new Size(133, 23);
+            StudentFirstNameTxb.TabIndex = 1;
             // 
             // label1
             // 
@@ -573,19 +573,19 @@
         private Label StudiedSubjectLbl;
         private Label label1;
         private Label DOBLbl;
-        private TextBox TelephoneTxb;
+        private TextBox StudentTelephoneTxb;
         private Label TelephoneLbl;
-        private TextBox EmailTxb;
+        private TextBox StudentEmailTxb;
         private Label EmailLbl;
-        private TextBox LastNameTxb;
+        private TextBox StudentLastNameTxb;
         private Label LastNameLbl;
-        private TextBox FirstNameTxb;
-        private TextBox AgeTxb;
+        private TextBox StudentFirstNameTxb;
+        private TextBox StudentAgeTxb;
         private Label AgeLbl;
-        private DateTimePicker DOBDatePicker;
+        private DateTimePicker StudentDOBDatePicker;
         private Button CancelStudentBtn;
         private Button SaveStudentBtn;
-        private ComboBox GenderComboBox;
+        private ComboBox StudentGenderComboBox;
         private Label GenderLbl;
         private Label CloseStudentViewBtn;
         private BindingSource studentBindingSource;

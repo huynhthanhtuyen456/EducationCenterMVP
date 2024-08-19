@@ -217,6 +217,10 @@ namespace EducationCenter.Views.Classes
         private static AdministratorView? instance;
         public static AdministratorView GetInstance(Form parentContainer)
         {
+            foreach (Form c in parentContainer.MdiChildren)
+            {
+                c.Close();
+            }
             if (instance == null || instance.IsDisposed)
             {
                 instance = new AdministratorView();
