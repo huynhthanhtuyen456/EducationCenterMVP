@@ -41,7 +41,7 @@ namespace EducationCenter
             };
             ShowAdministratorViewBtn.Click += delegate
             {
-                ShowSubjectView?.Invoke(this, EventArgs.Empty);
+                ShowAdministratorView?.Invoke(this, EventArgs.Empty);
                 ShowAdministratorViewBtn.BackColor = Color.FromArgb(255, 224, 192);
                 ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
                 ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;

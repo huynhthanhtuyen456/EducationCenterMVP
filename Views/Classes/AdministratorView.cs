@@ -22,144 +22,150 @@ namespace EducationCenter.Views.Classes
         public AdministratorView()
         {
             InitializeComponent();
-            //AssociateAndRaiseViewEvents();
-            //StudentTabControl.TabPages.Remove(StudentDetailTabPage);
-            ////StudentTabControl.TabPages.Remove(AssignSubjectTabPage);
-            //GenderComboBox.DataSource = Enum.GetValues(typeof(GenderEnum));
-            //CloseStudentViewBtn.Click += delegate { this.Close(); };
+            AssociateAndRaiseViewEvents();
+            AdminTabControl.TabPages.Remove(AdminDetailTabPage);
+            GenderComboBox.DataSource = Enum.GetValues(typeof(GenderEnum));
+            WorkingTypeComboBox.DataSource = Enum.GetValues(typeof(WorkingTypeEnum));
+            CloseAdministratorViewBtn.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
         {
             /* Start Emitting Event Related to Teacher Record */
             //Search
-            //SearchStudentBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
-            //SearchStudentTxb.KeyDown += (s, e) =>
-            //{
-            //    if (e.KeyCode == Keys.Enter)
-            //        SearchEvent?.Invoke(this, EventArgs.Empty);
-            //};
-            ////Add new
-            //AddStudentBtn.Click += delegate
-            //{
-            //    StudentTabControl.TabPages.Remove(StudentListTabPage);
-            //    StudentTabControl.TabPages.Remove(StudentDetailTabPage);
-            //    StudentTabControl.TabPages.Add(StudentDetailTabPage);
-            //    AddNewEvent?.Invoke(this, EventArgs.Empty);
-            //    StudentDetailTabPage.Text = "Add new student";
-            //};
+            SearchAdminBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            SearchAdminTxb.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
+            //Add new
+            AddAdminBtn.Click += delegate
+            {
+                AdminTabControl.TabPages.Remove(AdminListTabPage);
+                AdminTabControl.TabPages.Remove(AdminDetailTabPage);
+                AdminTabControl.TabPages.Add(AdminDetailTabPage);
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                AdminDetailTabPage.Text = "Add new administrator";
+            };
             ////Edit
-            //EditStudentBtn.Click += delegate
-            //{
-            //    StudentTabControl.TabPages.Remove(StudentListTabPage);
-            //    StudentTabControl.TabPages.Remove(StudentDetailTabPage);
-            //    StudentTabControl.TabPages.Add(StudentDetailTabPage);
-            //    EditEvent?.Invoke(this, EventArgs.Empty);
-            //    StudentDetailTabPage.Text = "Edit Student";
-            //    if (!isEdit)
-            //    {
-            //        StudentTabControl.TabPages.Remove(StudentListTabPage);
-            //        StudentTabControl.TabPages.Remove(StudentDetailTabPage);
-            //        StudentTabControl.TabPages.Add(StudentListTabPage);
-            //        MessageBox.Show("Does not have any records");
-            //    }
-            //};
-            ////Save changes
-            //SaveStudentBtn.Click += delegate
-            //{
-            //    SaveEvent?.Invoke(this, EventArgs.Empty);
-            //    if (isSuccessfull)
-            //    {
-            //        StudentTabControl.TabPages.Remove(StudentListTabPage);
-            //        StudentTabControl.TabPages.Remove(StudentDetailTabPage);
-            //        StudentTabControl.TabPages.Add(StudentListTabPage);
-            //    }
-            //    MessageBox.Show(Message);
-            //};
-            ////Cancel
-            //CancelStudentBtn.Click += delegate
-            //{
-            //    CancelEvent?.Invoke(this, EventArgs.Empty);
-            //    StudentTabControl.TabPages.Remove(StudentListTabPage);
-            //    StudentTabControl.TabPages.Remove(StudentDetailTabPage);
-            //    StudentTabControl.TabPages.Add(StudentListTabPage);
-            //};
-            ////Delete
-            //DeleteStudentBtn.Click += delegate
-            //{
-            //    var result = MessageBox.Show("Are you sure you want to delete the selected student?", "Warning",
-            //          MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            //    if (result == DialogResult.Yes)
-            //    {
-            //        DeleteEvent?.Invoke(this, EventArgs.Empty);
-            //        MessageBox.Show(Message);
-            //    }
-            //};
+            EditAdminBtn.Click += delegate
+            {
+                AdminTabControl.TabPages.Remove(AdminListTabPage);
+                AdminTabControl.TabPages.Remove(AdminDetailTabPage);
+                AdminTabControl.TabPages.Add(AdminDetailTabPage);
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                AdminDetailTabPage.Text = "Edit Administrator";
+                if (!isEdit)
+                {
+                    AdminTabControl.TabPages.Remove(AdminListTabPage);
+                    AdminTabControl.TabPages.Remove(AdminDetailTabPage);
+                    AdminTabControl.TabPages.Add(AdminListTabPage);
+                    MessageBox.Show("Does not have any records");
+                }
+            };
+            //Save changes
+            SaveAdminBtn.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessfull)
+                {
+                    AdminTabControl.TabPages.Remove(AdminListTabPage);
+                    AdminTabControl.TabPages.Remove(AdminDetailTabPage);
+                    AdminTabControl.TabPages.Add(AdminDetailTabPage);
+                }
+                MessageBox.Show(Message);
+            };
+            //Cancel
+            CancelAdminBtn.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                AdminTabControl.TabPages.Remove(AdminListTabPage);
+                AdminTabControl.TabPages.Remove(AdminDetailTabPage);
+                AdminTabControl.TabPages.Add(AdminDetailTabPage);
+            };
+            //Delete
+            DeleteAdminBtn.Click += delegate
+            {
+                var result = MessageBox.Show("Are you sure you want to delete the selected administrator?", "Warning",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
             /* End Emitting Event Related to Teacher Record */
-            //EnrollStudentSubjectBtn.Click += delegate
-            //{
-            //    StudentTabControl.TabPages.Remove(StudentListTabPage);
-            //    StudentTabControl.TabPages.Remove(StudentDetailTabPage);
-            //    StudentTabControl.TabPages.Add(AssignSubjectTabPage);
-            //    AssignSubjectTabPageEvent?.Invoke(this, EventArgs.Empty);
-            //    TeacherDetailTabPage.Text = "Enroll new subject";
-            //};
-            /* Start Emitting Event To Assign Subject To Teachers */
 
         }
 
         public int AdminId { get; set; }
 
-        public string AdminFirstName;
-        //{
-        //    get { return FirstNameTxb.Text; }
-        //    set { FirstNameTxb.Text = value; }
-        //}
-        public string AdminLastName;
-        //{
-        //    get { return LastNameTxb.Text; }
-        //    set { LastNameTxb.Text = value; }
-        //}
-        public DateOnly AdminDateOfBirth;
-        //{
-        //    get { return DateOnly.FromDateTime(DOBDatePicker.Value); }
-        //    set
-        //    {
-        //        DOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
-        //    }
-        //}
-        public GenderEnum AdminGender;
-        //{
-        //    get { return (GenderEnum)GenderComboBox.SelectedItem; }
-        //    set
-        //    {
-        //        GenderComboBox.SelectedItem = (GenderEnum)value;
-        //    }
-        //}
-        public int AdminAge;
-        //{
-        //    get { return Int32.Parse(AgeTxb.Text); }
-        //    set
-        //    {
-        //        AgeTxb.Text = value.ToString();
-        //    }
-        //}
-        public string AdminEmail;
-        //{
-        //    get { return EmailTxb.Text; }
-        //    set { EmailTxb.Text = value; }
-        //}
-        public string AdminTelephone;
-        //{
-        //    get { return TelephoneTxb.Text; }
-        //    set { TelephoneTxb.Text = value; }
-        //}
+        public string AdminFirstName
+        {
+            get { return FirstNameTxb.Text; }
+            set { FirstNameTxb.Text = value; }
+        }
+        public string AdminLastName
+        {
+            get { return LastNameTxb.Text; }
+            set { LastNameTxb.Text = value; }
+        }
+        public DateOnly AdminDateOfBirth
+        {
+            get { return DateOnly.FromDateTime(DOBDatePicker.Value); }
+            set
+            {
+                DOBDatePicker.Value = new DateTime(value.Year, value.Month, value.Day);
+            }
+        }
+        public GenderEnum AdminGender
+        {
+            get { return (GenderEnum)GenderComboBox.SelectedItem; }
+            set
+            {
+                GenderComboBox.SelectedItem = (GenderEnum)value;
+            }
+        }
+        public int AdminAge
+        {
+            get { return Int32.Parse(AgeTxb.Text); }
+            set
+            {
+                AgeTxb.Text = value.ToString();
+            }
+        }
+        public string AdminEmail
+        {
+            get { return EmailTxb.Text; }
+            set { EmailTxb.Text = value; }
+        }
+        public string AdminTelephone
+        {
+            get { return TelephoneTxb.Text; }
+            set { TelephoneTxb.Text = value; }
+        }
 
-        public string SearchValue;
-        //{
-        //    get { return SearchStudentTxb.Text; }
-        //    set { SearchStudentTxb.Text = value; }
-        //}
+        public WorkingTypeEnum AdminWorkingType 
+        {
+            get { return (WorkingTypeEnum)WorkingTypeComboBox.SelectedItem; }
+            set
+            {
+                WorkingTypeComboBox.SelectedItem = (WorkingTypeEnum)value;
+            }
+        }
+        public int AdminWorkingScheduleId 
+        { 
+            get { return (int)WorkingScheduleComboBox.SelectedValue; }
+            set {  WorkingScheduleComboBox.SelectedValue = value;}
+        }
+        public float AdminWorkingHours { get; set; }
+
+        public string SearchValue
+        {
+            get { return SearchAdminTxb.Text; }
+            set { SearchAdminTxb.Text = value; }
+        }
         public bool IsEdit
         {
             get { return isEdit; }
@@ -185,13 +191,16 @@ namespace EducationCenter.Views.Classes
         public event EventHandler CancelEvent;
         /* End Definition Event Handler related to Teacher Entity */
 
-        /* Start Definition Event Handler related to assign Subject To Teachers */
-        public event EventHandler AssignSubjectTabPageEvent;
-        /* End Definition Event Handler related to assign Subject To Teachers */
-
         public void SetAdminListBindingSource(BindingSource adminList)
         {
-            //StudentListDgv.DataSource = studentList;
+            AdminListDgv.DataSource = adminList;
+        }
+
+        public void SetWorkingScheduleListBindingSource(BindingSource workingScheduleList)
+        {
+            WorkingScheduleComboBox.DisplayMember = "Name";
+            WorkingScheduleComboBox.ValueMember = "Id";
+            WorkingScheduleComboBox.DataSource = workingScheduleList;
         }
 
         //Singleton pattern (Open a single form instance)

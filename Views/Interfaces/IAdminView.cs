@@ -18,6 +18,9 @@ namespace EducationCenter.Views.Interfaces
         int AdminAge { get; set; }
         string AdminEmail { get; set; }
         string AdminTelephone { get; set; }
+        WorkingTypeEnum AdminWorkingType { get; set; }
+        int AdminWorkingScheduleId { get; set; }
+        float AdminWorkingHours { get; set; }
 
         // Properties - Related to Show Form Actions
         string SearchValue { get; set; }

@@ -25,7 +25,7 @@ namespace EducationCenter.Presenters.Classes
             this.repository = repository;
             //Subscribe event handler methods to view events
             this.view.SearchEvent += SearchAdmin;
-            this.view.AddNewEvent += AddNewStudent;
+            this.view.AddNewEvent += AddNewAdmin;
             this.view.EditEvent += LoadSelectedAdminToEdit;
             this.view.DeleteEvent += DeleteSelectedAdmin;
             this.view.SaveEvent += SaveAdmin;
