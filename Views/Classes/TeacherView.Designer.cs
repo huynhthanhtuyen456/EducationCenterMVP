@@ -78,6 +78,28 @@
             TchLastNameTxb = new TextBox();
             TchFirstNameTxb = new TextBox();
             AssignSubjectTabPage = new TabPage();
+            AssignSubject1GrpBox = new GroupBox();
+            AssignSubject2GrpBox = new GroupBox();
+            Subject1Lbl = new Label();
+            Subject1ComboBox = new ComboBox();
+            FinishedSubject1CheckBox = new CheckBox();
+            StudyingSubject1CheckBox = new CheckBox();
+            StartDateSubject1Txb = new DateTimePicker();
+            StartDateSubject1Lbl = new Label();
+            EndDateSubject1Lbl = new Label();
+            EndDateSubject1DatePck = new DateTimePicker();
+            EndDateSub2DtPck = new DateTimePicker();
+            StartDateSub1Lbl = new Label();
+            StartDateSub1DtPck = new DateTimePicker();
+            StudyingSub2CheckBox = new CheckBox();
+            FinishedSub2CheckBox = new CheckBox();
+            Subject2Lbl = new Label();
+            Subject2Combobox = new ComboBox();
+            EndDateSub2Lbl = new Label();
+            SaveSub1Btn = new Button();
+            CancelSub2Btn = new Button();
+            button1 = new Button();
+            button2 = new Button();
             TecherPanel.SuspendLayout();
             TeacherTabControl.SuspendLayout();
             TeacherListTabPage.SuspendLayout();
@@ -88,6 +110,9 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             TeachingInfoGroupBox.SuspendLayout();
             PersonalInfiGroupBox.SuspendLayout();
+            AssignSubjectTabPage.SuspendLayout();
+            AssignSubject1GrpBox.SuspendLayout();
+            AssignSubject2GrpBox.SuspendLayout();
             SuspendLayout();
             // 
             // TeacherLbl
@@ -585,6 +610,8 @@
             // 
             // AssignSubjectTabPage
             // 
+            AssignSubjectTabPage.Controls.Add(AssignSubject2GrpBox);
+            AssignSubjectTabPage.Controls.Add(AssignSubject1GrpBox);
             AssignSubjectTabPage.Location = new Point(4, 24);
             AssignSubjectTabPage.Name = "AssignSubjectTabPage";
             AssignSubjectTabPage.Padding = new Padding(3);
@@ -592,6 +619,240 @@
             AssignSubjectTabPage.TabIndex = 2;
             AssignSubjectTabPage.Text = "Assign Subject";
             AssignSubjectTabPage.UseVisualStyleBackColor = true;
+            // 
+            // AssignSubject1GrpBox
+            // 
+            AssignSubject1GrpBox.Controls.Add(CancelSub2Btn);
+            AssignSubject1GrpBox.Controls.Add(SaveSub1Btn);
+            AssignSubject1GrpBox.Controls.Add(EndDateSubject1DatePck);
+            AssignSubject1GrpBox.Controls.Add(EndDateSubject1Lbl);
+            AssignSubject1GrpBox.Controls.Add(StartDateSubject1Lbl);
+            AssignSubject1GrpBox.Controls.Add(StartDateSubject1Txb);
+            AssignSubject1GrpBox.Controls.Add(StudyingSubject1CheckBox);
+            AssignSubject1GrpBox.Controls.Add(FinishedSubject1CheckBox);
+            AssignSubject1GrpBox.Controls.Add(Subject1ComboBox);
+            AssignSubject1GrpBox.Controls.Add(Subject1Lbl);
+            AssignSubject1GrpBox.Location = new Point(6, 6);
+            AssignSubject1GrpBox.Name = "AssignSubject1GrpBox";
+            AssignSubject1GrpBox.Size = new Size(658, 165);
+            AssignSubject1GrpBox.TabIndex = 0;
+            AssignSubject1GrpBox.TabStop = false;
+            AssignSubject1GrpBox.Text = "Subject 1";
+            // 
+            // AssignSubject2GrpBox
+            // 
+            AssignSubject2GrpBox.Controls.Add(button1);
+            AssignSubject2GrpBox.Controls.Add(button2);
+            AssignSubject2GrpBox.Controls.Add(EndDateSub2Lbl);
+            AssignSubject2GrpBox.Controls.Add(Subject2Combobox);
+            AssignSubject2GrpBox.Controls.Add(EndDateSub2DtPck);
+            AssignSubject2GrpBox.Controls.Add(StartDateSub1Lbl);
+            AssignSubject2GrpBox.Controls.Add(StartDateSub1DtPck);
+            AssignSubject2GrpBox.Controls.Add(StudyingSub2CheckBox);
+            AssignSubject2GrpBox.Controls.Add(FinishedSub2CheckBox);
+            AssignSubject2GrpBox.Controls.Add(Subject2Lbl);
+            AssignSubject2GrpBox.Location = new Point(6, 177);
+            AssignSubject2GrpBox.Name = "AssignSubject2GrpBox";
+            AssignSubject2GrpBox.Size = new Size(658, 181);
+            AssignSubject2GrpBox.TabIndex = 1;
+            AssignSubject2GrpBox.TabStop = false;
+            AssignSubject2GrpBox.Text = "Subject 2";
+            // 
+            // Subject1Lbl
+            // 
+            Subject1Lbl.AutoSize = true;
+            Subject1Lbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Subject1Lbl.Location = new Point(0, 24);
+            Subject1Lbl.Name = "Subject1Lbl";
+            Subject1Lbl.Size = new Size(49, 15);
+            Subject1Lbl.TabIndex = 0;
+            Subject1Lbl.Text = "Subject";
+            // 
+            // Subject1ComboBox
+            // 
+            Subject1ComboBox.FormattingEnabled = true;
+            Subject1ComboBox.Location = new Point(53, 20);
+            Subject1ComboBox.Name = "Subject1ComboBox";
+            Subject1ComboBox.Size = new Size(121, 23);
+            Subject1ComboBox.TabIndex = 1;
+            // 
+            // FinishedSubject1CheckBox
+            // 
+            FinishedSubject1CheckBox.AutoSize = true;
+            FinishedSubject1CheckBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FinishedSubject1CheckBox.Location = new Point(213, 23);
+            FinishedSubject1CheckBox.Name = "FinishedSubject1CheckBox";
+            FinishedSubject1CheckBox.Size = new Size(71, 19);
+            FinishedSubject1CheckBox.TabIndex = 2;
+            FinishedSubject1CheckBox.Text = "Finished";
+            FinishedSubject1CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // StudyingSubject1CheckBox
+            // 
+            StudyingSubject1CheckBox.AutoSize = true;
+            StudyingSubject1CheckBox.Enabled = false;
+            StudyingSubject1CheckBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            StudyingSubject1CheckBox.Location = new Point(290, 23);
+            StudyingSubject1CheckBox.Name = "StudyingSubject1CheckBox";
+            StudyingSubject1CheckBox.Size = new Size(75, 19);
+            StudyingSubject1CheckBox.TabIndex = 3;
+            StudyingSubject1CheckBox.Text = "Studying";
+            StudyingSubject1CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // StartDateSubject1Txb
+            // 
+            StartDateSubject1Txb.Location = new Point(68, 72);
+            StartDateSubject1Txb.Name = "StartDateSubject1Txb";
+            StartDateSubject1Txb.Size = new Size(216, 23);
+            StartDateSubject1Txb.TabIndex = 4;
+            // 
+            // StartDateSubject1Lbl
+            // 
+            StartDateSubject1Lbl.AutoSize = true;
+            StartDateSubject1Lbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            StartDateSubject1Lbl.Location = new Point(0, 78);
+            StartDateSubject1Lbl.Name = "StartDateSubject1Lbl";
+            StartDateSubject1Lbl.Size = new Size(62, 15);
+            StartDateSubject1Lbl.TabIndex = 5;
+            StartDateSubject1Lbl.Text = "StartDate";
+            // 
+            // EndDateSubject1Lbl
+            // 
+            EndDateSubject1Lbl.AutoSize = true;
+            EndDateSubject1Lbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            EndDateSubject1Lbl.Location = new Point(290, 78);
+            EndDateSubject1Lbl.Name = "EndDateSubject1Lbl";
+            EndDateSubject1Lbl.Size = new Size(54, 15);
+            EndDateSubject1Lbl.TabIndex = 6;
+            EndDateSubject1Lbl.Text = "EndDate";
+            // 
+            // EndDateSubject1DatePck
+            // 
+            EndDateSubject1DatePck.Location = new Point(350, 72);
+            EndDateSubject1DatePck.Name = "EndDateSubject1DatePck";
+            EndDateSubject1DatePck.Size = new Size(206, 23);
+            EndDateSubject1DatePck.TabIndex = 7;
+            // 
+            // EndDateSub2DtPck
+            // 
+            EndDateSub2DtPck.Location = new Point(350, 78);
+            EndDateSub2DtPck.Name = "EndDateSub2DtPck";
+            EndDateSub2DtPck.Size = new Size(206, 23);
+            EndDateSub2DtPck.TabIndex = 13;
+            // 
+            // StartDateSub1Lbl
+            // 
+            StartDateSub1Lbl.AutoSize = true;
+            StartDateSub1Lbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            StartDateSub1Lbl.Location = new Point(6, 84);
+            StartDateSub1Lbl.Name = "StartDateSub1Lbl";
+            StartDateSub1Lbl.Size = new Size(62, 15);
+            StartDateSub1Lbl.TabIndex = 12;
+            StartDateSub1Lbl.Text = "StartDate";
+            // 
+            // StartDateSub1DtPck
+            // 
+            StartDateSub1DtPck.Location = new Point(68, 78);
+            StartDateSub1DtPck.Name = "StartDateSub1DtPck";
+            StartDateSub1DtPck.Size = new Size(216, 23);
+            StartDateSub1DtPck.TabIndex = 11;
+            // 
+            // StudyingSub2CheckBox
+            // 
+            StudyingSub2CheckBox.AutoSize = true;
+            StudyingSub2CheckBox.Enabled = false;
+            StudyingSub2CheckBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            StudyingSub2CheckBox.Location = new Point(290, 19);
+            StudyingSub2CheckBox.Name = "StudyingSub2CheckBox";
+            StudyingSub2CheckBox.Size = new Size(75, 19);
+            StudyingSub2CheckBox.TabIndex = 10;
+            StudyingSub2CheckBox.Text = "Studying";
+            StudyingSub2CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // FinishedSub2CheckBox
+            // 
+            FinishedSub2CheckBox.AutoSize = true;
+            FinishedSub2CheckBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FinishedSub2CheckBox.Location = new Point(213, 20);
+            FinishedSub2CheckBox.Name = "FinishedSub2CheckBox";
+            FinishedSub2CheckBox.Size = new Size(71, 19);
+            FinishedSub2CheckBox.TabIndex = 9;
+            FinishedSub2CheckBox.Text = "Finished";
+            FinishedSub2CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // Subject2Lbl
+            // 
+            Subject2Lbl.AutoSize = true;
+            Subject2Lbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Subject2Lbl.Location = new Point(6, 19);
+            Subject2Lbl.Name = "Subject2Lbl";
+            Subject2Lbl.Size = new Size(49, 15);
+            Subject2Lbl.TabIndex = 8;
+            Subject2Lbl.Text = "Subject";
+            // 
+            // Subject2Combobox
+            // 
+            Subject2Combobox.FormattingEnabled = true;
+            Subject2Combobox.Location = new Point(61, 16);
+            Subject2Combobox.Name = "Subject2Combobox";
+            Subject2Combobox.Size = new Size(121, 23);
+            Subject2Combobox.TabIndex = 14;
+            // 
+            // EndDateSub2Lbl
+            // 
+            EndDateSub2Lbl.AutoSize = true;
+            EndDateSub2Lbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            EndDateSub2Lbl.Location = new Point(290, 84);
+            EndDateSub2Lbl.Name = "EndDateSub2Lbl";
+            EndDateSub2Lbl.Size = new Size(54, 15);
+            EndDateSub2Lbl.TabIndex = 15;
+            EndDateSub2Lbl.Text = "EndDate";
+            // 
+            // SaveSub1Btn
+            // 
+            SaveSub1Btn.BackColor = Color.Lime;
+            SaveSub1Btn.FlatAppearance.BorderSize = 0;
+            SaveSub1Btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 192);
+            SaveSub1Btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128);
+            SaveSub1Btn.FlatStyle = FlatStyle.Flat;
+            SaveSub1Btn.Location = new Point(6, 136);
+            SaveSub1Btn.Name = "SaveSub1Btn";
+            SaveSub1Btn.Size = new Size(75, 23);
+            SaveSub1Btn.TabIndex = 8;
+            SaveSub1Btn.Text = "Save";
+            SaveSub1Btn.UseVisualStyleBackColor = false;
+            // 
+            // CancelSub2Btn
+            // 
+            CancelSub2Btn.Location = new Point(87, 136);
+            CancelSub2Btn.Name = "CancelSub2Btn";
+            CancelSub2Btn.Size = new Size(75, 23);
+            CancelSub2Btn.TabIndex = 9;
+            CancelSub2Btn.Text = "Cancel";
+            CancelSub2Btn.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(87, 152);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 17;
+            button1.Text = "Cancel";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Lime;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 192);
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(6, 152);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 16;
+            button2.Text = "Save";
+            button2.UseVisualStyleBackColor = false;
             // 
             // TeacherView
             // 
@@ -619,6 +880,11 @@
             TeachingInfoGroupBox.PerformLayout();
             PersonalInfiGroupBox.ResumeLayout(false);
             PersonalInfiGroupBox.PerformLayout();
+            AssignSubjectTabPage.ResumeLayout(false);
+            AssignSubject1GrpBox.ResumeLayout(false);
+            AssignSubject1GrpBox.PerformLayout();
+            AssignSubject2GrpBox.ResumeLayout(false);
+            AssignSubject2GrpBox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -673,5 +939,27 @@
         private Label GenderLbl;
         private Button AssignSubjectBtn;
         private TabPage AssignSubjectTabPage;
+        private GroupBox AssignSubject2GrpBox;
+        private GroupBox AssignSubject1GrpBox;
+        private Label StartDateSubject1Lbl;
+        private DateTimePicker StartDateSubject1Txb;
+        private CheckBox StudyingSubject1CheckBox;
+        private CheckBox FinishedSubject1CheckBox;
+        private ComboBox Subject1ComboBox;
+        private Label Subject1Lbl;
+        private Label EndDateSubject1Lbl;
+        private Label EndDateSub2Lbl;
+        private ComboBox Subject2Combobox;
+        private DateTimePicker EndDateSub2DtPck;
+        private Label StartDateSub1Lbl;
+        private DateTimePicker StartDateSub1DtPck;
+        private CheckBox StudyingSub2CheckBox;
+        private CheckBox FinishedSub2CheckBox;
+        private Label Subject2Lbl;
+        private Button CancelSub2Btn;
+        private Button SaveSub1Btn;
+        private DateTimePicker EndDateSubject1DatePck;
+        private Button button1;
+        private Button button2;
     }
 }

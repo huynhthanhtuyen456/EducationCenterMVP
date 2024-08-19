@@ -21,6 +21,7 @@ namespace EducationCenter
                 ShowTeacherViewBtn.BackColor = Color.FromArgb(255, 224, 192);
                 ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
                 ShowSubjectViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowAdministratorViewBtn.BackColor = SystemColors.ActiveCaption;
             };
             ShowStudentViewBtn.Click += delegate 
             { 
@@ -28,6 +29,7 @@ namespace EducationCenter
                 ShowStudentViewBtn.BackColor = Color.FromArgb(255, 224, 192);
                 ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
                 ShowSubjectViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowAdministratorViewBtn.BackColor = SystemColors.ActiveCaption;
             };
             ShowSubjectViewBtn.Click += delegate 
             {
@@ -35,12 +37,22 @@ namespace EducationCenter
                 ShowSubjectViewBtn.BackColor = Color.FromArgb(255, 224, 192);
                 ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
                 ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowAdministratorViewBtn.BackColor = SystemColors.ActiveCaption;
+            };
+            ShowAdministratorViewBtn.Click += delegate
+            {
+                ShowSubjectView?.Invoke(this, EventArgs.Empty);
+                ShowAdministratorViewBtn.BackColor = Color.FromArgb(255, 224, 192);
+                ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
+                ShowSubjectViewBtn.BackColor = SystemColors.ActiveCaption;
             };
         }
 
         public event EventHandler? ShowTeacherView;
         public event EventHandler? ShowStudentView;
         public event EventHandler? ShowSubjectView;
+        public event EventHandler? ShowAdministratorView;
 
         private void MainView_Load(object sender, EventArgs e)
         {
@@ -48,6 +60,7 @@ namespace EducationCenter
             ShowSubjectViewBtn.BackColor = Color.FromArgb(255, 224, 192);
             ShowTeacherViewBtn.BackColor = SystemColors.ActiveCaption;
             ShowStudentViewBtn.BackColor = SystemColors.ActiveCaption;
+            ShowAdministratorViewBtn.BackColor = SystemColors.ActiveCaption;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace EducationCenter.Views.Interfaces
 {
     public interface ITeacherView
     {
-        // Properties - Fields
+        // Properties - Fields Related to DB Fields
         int TeacherId { get; set; }
         string TeacherFirstName { get; set; }
         string TeacherLastName { get; set; }
@@ -20,6 +20,7 @@ namespace EducationCenter.Views.Interfaces
         decimal TeacherSalary { get; set; }
         string TeacherTelephone { get; set; }
 
+        // Properties - Related to Show Form Actions
         string SearchValue { get; set; }
         bool IsEdit { get; set; }
         bool IsSuccessfull { get; set; }

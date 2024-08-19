@@ -35,6 +35,7 @@
             ShowStudentViewBtn = new Button();
             panel2 = new Panel();
             EducationCenterLbl = new Label();
+            ShowAdministratorViewBtn = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -48,7 +49,7 @@
             ShowTeacherViewBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
             ShowTeacherViewBtn.FlatStyle = FlatStyle.Flat;
             ShowTeacherViewBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ShowTeacherViewBtn.Location = new Point(3, 51);
+            ShowTeacherViewBtn.Location = new Point(3, 109);
             ShowTeacherViewBtn.Name = "ShowTeacherViewBtn";
             ShowTeacherViewBtn.Size = new Size(194, 23);
             ShowTeacherViewBtn.TabIndex = 1;
@@ -58,6 +59,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(ShowAdministratorViewBtn);
             panel1.Controls.Add(LogoutBtn);
             panel1.Controls.Add(ShowSubjectViewBtn);
             panel1.Controls.Add(ShowStudentViewBtn);
@@ -93,7 +95,7 @@
             ShowSubjectViewBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
             ShowSubjectViewBtn.FlatStyle = FlatStyle.Flat;
             ShowSubjectViewBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ShowSubjectViewBtn.Location = new Point(3, 109);
+            ShowSubjectViewBtn.Location = new Point(3, 51);
             ShowSubjectViewBtn.Name = "ShowSubjectViewBtn";
             ShowSubjectViewBtn.Size = new Size(194, 23);
             ShowSubjectViewBtn.TabIndex = 4;
@@ -129,11 +131,25 @@
             // 
             EducationCenterLbl.AutoSize = true;
             EducationCenterLbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            EducationCenterLbl.Location = new Point(24, 6);
+            EducationCenterLbl.Location = new Point(27, 6);
             EducationCenterLbl.Name = "EducationCenterLbl";
             EducationCenterLbl.Size = new Size(141, 21);
             EducationCenterLbl.TabIndex = 0;
             EducationCenterLbl.Text = "Education Center";
+            // 
+            // ShowAdministratorViewBtn
+            // 
+            ShowAdministratorViewBtn.FlatAppearance.BorderSize = 0;
+            ShowAdministratorViewBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 224, 192);
+            ShowAdministratorViewBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 192, 128);
+            ShowAdministratorViewBtn.FlatStyle = FlatStyle.Flat;
+            ShowAdministratorViewBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ShowAdministratorViewBtn.Location = new Point(0, 138);
+            ShowAdministratorViewBtn.Name = "ShowAdministratorViewBtn";
+            ShowAdministratorViewBtn.Size = new Size(200, 23);
+            ShowAdministratorViewBtn.TabIndex = 6;
+            ShowAdministratorViewBtn.Text = "Administrator";
+            ShowAdministratorViewBtn.UseVisualStyleBackColor = true;
             // 
             // MainView
             // 
@@ -161,5 +177,6 @@
         private Button ShowStudentViewBtn;
         private Button ShowSubjectViewBtn;
         private Button LogoutBtn;
+        private Button ShowAdministratorViewBtn;
     }
 }

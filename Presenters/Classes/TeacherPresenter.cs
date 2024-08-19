@@ -15,7 +15,6 @@ namespace EducationCenter.Presenters
         //Fields
         private ITeacherView view;
         private ITeacherRepository repository;
-        private IRoleRepository roleRepository;
         private BindingSource teachersBindingSource;
         private IEnumerable<Teacher> teacherList;
 
@@ -25,7 +24,6 @@ namespace EducationCenter.Presenters
             this.teachersBindingSource = new BindingSource();
             this.view = view;
             this.repository = repository;
-            this.roleRepository = new RoleRepository();
             //Subscribe event handler methods to view events
             this.view.SearchEvent += SearchTeacher;
             this.view.AddNewEvent += AddNewTeacher;

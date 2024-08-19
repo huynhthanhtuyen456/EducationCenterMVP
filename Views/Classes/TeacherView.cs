@@ -25,12 +25,14 @@ namespace EducationCenter
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
+            TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
             TeacherGenderCbox.DataSource = Enum.GetValues(typeof(GenderEnum));
             CloseTeacherFormBtn.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
         {
+            /* Start Emitting Event Related to Teacher Record */
             //Search
             SearchTeacherBtn.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
             TchSearchValTxb.KeyDown += (s, e) =>
@@ -41,6 +43,7 @@ namespace EducationCenter
             //Add new
             AddTeacherBtn.Click += delegate
             {
+                TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                 TeacherTabControl.TabPages.Remove(TeacherListTabPage);
                 TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
@@ -49,6 +52,7 @@ namespace EducationCenter
             //Edit
             EditTeacherBtn.Click += delegate
             {
+                TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                 TeacherTabControl.TabPages.Remove(TeacherListTabPage);
                 TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
                 EditEvent?.Invoke(this, EventArgs.Empty);
@@ -60,6 +64,7 @@ namespace EducationCenter
                 SaveEvent?.Invoke(this, EventArgs.Empty);
                 if (isSuccessfull)
                 {
+                    TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                     TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
                     TeacherTabControl.TabPages.Add(TeacherListTabPage);
                 }
@@ -69,6 +74,7 @@ namespace EducationCenter
             TchCancelBtn.Click += delegate
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
+                TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                 TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
                 TeacherTabControl.TabPages.Add(TeacherListTabPage);
             };
@@ -83,6 +89,17 @@ namespace EducationCenter
                     MessageBox.Show(Message);
                 }
             };
+            /* End Emitting Event Related to Teacher Record */
+            AssignSubjectBtn.Click += delegate
+            {
+                TeacherTabControl.TabPages.Remove(TeacherListTabPage);
+                TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
+                TeacherTabControl.TabPages.Add(AssignSubjectTabPage);
+                AssignSubjectTabPageEvent?.Invoke(this, EventArgs.Empty);
+                TeacherDetailTabPage.Text = "Add new teacher";
+            };
+            /* Start Emitting Event To Assign Subject To Teachers */
+
         }
 
         public int TeacherId { get; set; }
@@ -158,12 +175,18 @@ namespace EducationCenter
             set { message = value; }
         }
 
+        /* Definition Event Handler related to Teacher Entity */
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
+        /* End Definition Event Handler related to Teacher Entity */
+
+        /* Start Definition Event Handler related to assign Subject To Teachers */
+        public event EventHandler AssignSubjectTabPageEvent;
+        /* End Definition Event Handler related to assign Subject To Teachers */
 
         public void SetTeacherListBindingSource(BindingSource teacherList)
         {

@@ -8,6 +8,7 @@ namespace EducationCenter
 {
     public interface IMainView
     {
+        event EventHandler ShowAdministratorView;
         event EventHandler ShowTeacherView;
         event EventHandler ShowStudentView;
         event EventHandler ShowSubjectView;

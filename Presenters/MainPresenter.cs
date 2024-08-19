@@ -21,6 +21,7 @@ namespace EducationCenter.Presenters
             this.mainView = mainView;
             this.mainView.ShowTeacherView += ShowTeacherView;
             this.mainView.ShowSubjectView += ShowSubjectView;
+            this.mainView.ShowStudentView += ShowStudentView;
         }
 
         private void ShowTeacherView(object sender, EventArgs e)
@@ -35,6 +36,13 @@ namespace EducationCenter.Presenters
             ISubjectView view = SubjectView.GetInstance((MainView)mainView);
             ISubjectRepository repository = new SubjectRepository();
             new SubjectPresenter(view, repository);
+        }
+
+        private void ShowStudentView(object sender, EventArgs e)
+        {
+            IStudentView view = StudentView.GetInstance((MainView)mainView);
+            IStudentRepository repository = new StudentRepository();
+            new StudentPresenter(view, repository);
         }
     }
 }
