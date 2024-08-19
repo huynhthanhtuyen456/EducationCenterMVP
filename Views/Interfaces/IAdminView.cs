@@ -1,4 +1,5 @@
-﻿using Helper.Enums;
+﻿using DataLayer.Entities.Administrators;
+using Helper.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace EducationCenter.Views.Interfaces
         string AdminEmail { get; set; }
         string AdminTelephone { get; set; }
         WorkingTypeEnum AdminWorkingType { get; set; }
-        int AdminWorkingScheduleId { get; set; }
+        WorkingSchedule AdminWorkingSchedule { get; set; }
         float AdminWorkingHours { get; set; }
         decimal AdminSalary { get; set; }
 

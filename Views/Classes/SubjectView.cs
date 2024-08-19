@@ -46,10 +46,10 @@ namespace EducationCenter.Views.Classes
             //Edit
             EditSubjectBtn.Click += delegate
             {
-                EditEvent?.Invoke(this, EventArgs.Empty);
                 SubjectTabControl.TabPages.Remove(SubjectListTabPage);
                 SubjectTabControl.TabPages.Add(SubjectDetailTabPage);
                 SubjectDetailTabPage.Text = "Edit Subject";
+                EditEvent?.Invoke(this, EventArgs.Empty);
             };
             //Save changes
             SaveSubjectBtn.Click += delegate

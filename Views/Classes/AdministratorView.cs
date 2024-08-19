@@ -1,4 +1,5 @@
-﻿using EducationCenter.Views.Interfaces;
+﻿using DataLayer.Entities.Administrators;
+using EducationCenter.Views.Interfaces;
 using Helper.Enums;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace EducationCenter.Views.Classes
                 AddNewAdminEvent?.Invoke(this, EventArgs.Empty);
                 AdminDetailTabPage.Text = "Add new administrator";
             };
-            ////Edit
+            //Edit
             EditAdminBtn.Click += delegate
             {
                 AdminTabControl.TabPages.Remove(AdminListTabPage);
@@ -154,10 +155,10 @@ namespace EducationCenter.Views.Classes
                 AdminWorkingTypeComboBox.SelectedItem = (WorkingTypeEnum)value;
             }
         }
-        public int AdminWorkingScheduleId
+        public WorkingSchedule AdminWorkingSchedule
         {
-            get { return (int)AdminWorkingScheduleComboBox.SelectedValue; }
-            set { AdminWorkingScheduleComboBox.SelectedValue = value; }
+            get { return (WorkingSchedule)AdminWorkingScheduleComboBox.SelectedItem; }
+            set { AdminWorkingScheduleComboBox.SelectedItem = value; }
         }
         public float AdminWorkingHours
         {

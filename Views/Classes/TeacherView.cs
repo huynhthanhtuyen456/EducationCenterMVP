@@ -52,10 +52,10 @@ namespace EducationCenter
             //Edit
             EditTeacherBtn.Click += delegate
             {
-                EditTeacherEvent?.Invoke(this, EventArgs.Empty);
                 TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
                 TeacherTabControl.TabPages.Remove(TeacherListTabPage);
                 TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
+                EditTeacherEvent?.Invoke(this, EventArgs.Empty);
                 TeacherDetailTabPage.Text = "Edit Teacher";
             };
             //Save changes

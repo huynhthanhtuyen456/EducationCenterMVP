@@ -86,7 +86,7 @@ namespace EducationCenter.Presenters.Classes
             view.AdminTelephone = administrator.Telephone;
             view.AdminSalary = administrator.Salary;
             view.AdminWorkingHours = administrator.WorkingHours;
-            view.AdminWorkingScheduleId = administrator.WorkingScheduleId;
+            view.AdminWorkingSchedule = administrator.WorkingSchedule;
             view.AdminWorkingType = (WorkingTypeEnum)administrator.WorkingType;
             view.IsEdit = true;
         }
@@ -103,7 +103,7 @@ namespace EducationCenter.Presenters.Classes
                 Telephone = view.AdminTelephone,
                 Salary = view.AdminSalary,
                 WorkingHours = view.AdminWorkingHours,
-                WorkingScheduleId = view.AdminWorkingScheduleId,
+                WorkingSchedule = view.AdminWorkingSchedule,
                 WorkingType = view.AdminWorkingType,
             };
             try
@@ -142,7 +142,7 @@ namespace EducationCenter.Presenters.Classes
             view.AdminSalary = 0;
             view.AdminTelephone = "";
             view.AdminWorkingHours = 0;
-            view.AdminWorkingScheduleId = 0;
+            view.AdminWorkingSchedule = null;
             view.AdminWorkingType = 0;
         }
 
