@@ -46,7 +46,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 100);
+            panel1.Size = new Size(733, 100);
             panel1.TabIndex = 0;
             // 
             // EducationCenterTleLbl
@@ -54,17 +54,18 @@
             EducationCenterTleLbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             EducationCenterTleLbl.AutoSize = true;
             EducationCenterTleLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            EducationCenterTleLbl.Location = new Point(325, 27);
+            EducationCenterTleLbl.Location = new Point(126, 29);
             EducationCenterTleLbl.Name = "EducationCenterTleLbl";
-            EducationCenterTleLbl.Size = new Size(104, 45);
+            EducationCenterTleLbl.Size = new Size(456, 45);
             EducationCenterTleLbl.TabIndex = 0;
-            EducationCenterTleLbl.Text = "Login";
+            EducationCenterTleLbl.Text = "Education Center Login Form";
             // 
             // EmailLoginLbl
             // 
+            EmailLoginLbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             EmailLoginLbl.AutoSize = true;
             EmailLoginLbl.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            EmailLoginLbl.Location = new Point(199, 197);
+            EmailLoginLbl.Location = new Point(165, 197);
             EmailLoginLbl.Name = "EmailLoginLbl";
             EmailLoginLbl.Size = new Size(66, 30);
             EmailLoginLbl.TabIndex = 1;
@@ -72,16 +73,18 @@
             // 
             // LoginEmailTxb
             // 
-            LoginEmailTxb.Location = new Point(277, 204);
+            LoginEmailTxb.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            LoginEmailTxb.Location = new Point(243, 204);
             LoginEmailTxb.Name = "LoginEmailTxb";
             LoginEmailTxb.Size = new Size(226, 23);
             LoginEmailTxb.TabIndex = 2;
             // 
             // PasswordLoginLbl
             // 
+            PasswordLoginLbl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             PasswordLoginLbl.AutoSize = true;
             PasswordLoginLbl.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PasswordLoginLbl.Location = new Point(160, 248);
+            PasswordLoginLbl.Location = new Point(126, 248);
             PasswordLoginLbl.Name = "PasswordLoginLbl";
             PasswordLoginLbl.Size = new Size(105, 30);
             PasswordLoginLbl.TabIndex = 3;
@@ -89,7 +92,8 @@
             // 
             // LoginPassTxb
             // 
-            LoginPassTxb.Location = new Point(277, 255);
+            LoginPassTxb.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            LoginPassTxb.Location = new Point(243, 255);
             LoginPassTxb.Name = "LoginPassTxb";
             LoginPassTxb.PasswordChar = '*';
             LoginPassTxb.Size = new Size(226, 23);
@@ -97,15 +101,16 @@
             // 
             // LoginBtn
             // 
+            LoginBtn.Anchor = AnchorStyles.Top;
             LoginBtn.BackColor = SystemColors.ActiveCaption;
             LoginBtn.FlatAppearance.BorderColor = Color.White;
             LoginBtn.FlatAppearance.BorderSize = 0;
             LoginBtn.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 255, 255);
             LoginBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 255);
             LoginBtn.FlatStyle = FlatStyle.Flat;
-            LoginBtn.Location = new Point(277, 320);
+            LoginBtn.Location = new Point(243, 312);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.Size = new Size(226, 23);
+            LoginBtn.Size = new Size(226, 28);
             LoginBtn.TabIndex = 5;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = false;
@@ -124,7 +129,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(733, 456);
             Controls.Add(LoginErrorMsgLbl);
             Controls.Add(LoginBtn);
             Controls.Add(LoginPassTxb);
@@ -132,8 +137,9 @@
             Controls.Add(LoginEmailTxb);
             Controls.Add(EmailLoginLbl);
             Controls.Add(panel1);
+            MinimumSize = new Size(560, 467);
             Name = "LoginView";
-            Text = "LoginForm";
+            Text = "Education Center Login";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

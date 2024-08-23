@@ -20,6 +20,9 @@ namespace EducationCenter
         private bool isSuccessfull;
         private bool isEdit;
 
+        /*
+         * Initialize Teacher Form and Delegate Event to Presenter
+         */
         public TeacherView()
         {
             InitializeComponent();
@@ -30,6 +33,9 @@ namespace EducationCenter
             CloseTeacherFormBtn.Click += delegate { this.Close(); };
         }
 
+        /*
+         * Associate events related to Form
+         */
         private void AssociateAndRaiseViewEvents()
         {
             /* Start Emitting Event Related to Teacher Record */
@@ -102,6 +108,9 @@ namespace EducationCenter
 
         }
 
+        /*
+         * Define Public Property View to Presenter
+         */
         public int TeacherId { get; set; }
 
         public string TeacherFirstName

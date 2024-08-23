@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EducationCenter.Views.Interfaces
 {
+    /*
+     * Expose interface to Presenter which can only use Properties and Methods defined in interface
+     */
     public interface ITeacherView
     {
         // Properties - Fields Related to DB Fields
@@ -33,6 +36,13 @@ namespace EducationCenter.Views.Interfaces
         event EventHandler DeleteTeacherEvent;
         event EventHandler SaveTeacherEvent;
         event EventHandler CancelTeacherEvent;
+
+        /*
+         * Assign Subjects to Teachers via event
+         */
+        /*
+         * End definition Assign Subjects
+         */
 
         // Methods
         void SetTeacherListBindingSource(BindingSource teacherList);
