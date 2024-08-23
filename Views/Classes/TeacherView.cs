@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataLayer.Entities.Subjects;
 using EducationCenter.Views.Interfaces;
 using Helper.Enums;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -18,7 +19,11 @@ namespace EducationCenter
         // Private Properties
         private string message;
         private bool isSuccessfull;
+        private bool isSuccessfullSub1;
+        private bool isSuccessfullSub2;
         private bool isEdit;
+        private bool isEditSub1;
+        private bool isEditSub2;
 
         /*
          * Initialize Teacher Form and Delegate Event to Presenter
@@ -102,7 +107,49 @@ namespace EducationCenter
                 TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
                 TeacherTabControl.TabPages.Add(AssignSubjectTabPage);
                 AssignSubjectTabPageEvent?.Invoke(this, EventArgs.Empty);
-                TeacherDetailTabPage.Text = "Add new teacher";
+            };
+            SaveSub1Btn.Click += delegate
+            {
+
+                SaveSubject1Event?.Invoke(this, EventArgs.Empty);
+                if (isSuccessfull)
+                {
+                    TeacherTabControl.TabPages.Remove(TeacherListTabPage);
+                    TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
+                    TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
+                    TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
+                    TeacherDetailTabPage.Text = "Edit Teacher";
+                }
+                MessageBox.Show(Message);
+            };
+            CancelSub1Btn.Click += delegate
+            {
+                CancelSubject1Event?.Invoke(this, EventArgs.Empty);
+                TeacherTabControl.TabPages.Remove(TeacherListTabPage);
+                TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
+                TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
+                TeacherTabControl.TabPages.Add(TeacherListTabPage);
+            };
+            SaveSub2Btn.Click += delegate
+            {
+                SaveSubject2Event?.Invoke(this, EventArgs.Empty);
+                if (isSuccessfull)
+                {
+                    TeacherTabControl.TabPages.Remove(TeacherListTabPage);
+                    TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
+                    TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
+                    TeacherTabControl.TabPages.Add(TeacherDetailTabPage);
+                    TeacherDetailTabPage.Text = "Edit Teacher";
+                }
+                MessageBox.Show(Message);
+            };
+            CancelSub2Btn.Click += delegate
+            {
+                CancelSubject2Event?.Invoke(this, EventArgs.Empty);
+                TeacherTabControl.TabPages.Remove(TeacherListTabPage);
+                TeacherTabControl.TabPages.Remove(TeacherDetailTabPage);
+                TeacherTabControl.TabPages.Remove(AssignSubjectTabPage);
+                TeacherTabControl.TabPages.Add(TeacherListTabPage);
             };
             /* Start Emitting Event To Assign Subject To Teachers */
 
@@ -173,16 +220,118 @@ namespace EducationCenter
             get { return isEdit; }
             set { isEdit = value; }
         }
+        public bool IsEditSubject1
+        {
+            get { return isEditSub1; }
+            set { isEditSub1 = value; }
+        }
+        public bool IsEditSubject2
+        {
+            get { return isEditSub2; }
+            set { isEditSub2 = value; }
+        }
         public bool IsSuccessfull
         {
             get { return isSuccessfull; }
             set { isSuccessfull = value; }
+        }
+        public bool IsSuccessfullSub1
+        {
+            get { return isSuccessfullSub1; }
+            set { isSuccessfullSub1 = value; }
+        }
+        public bool IsSuccessfullSub2
+        {
+            get { return isSuccessfullSub2; }
+            set { isSuccessfullSub2 = value; }
         }
         public string Message
         {
             get { return message; }
             set { message = value; }
         }
+
+        /*
+         * Start Define view for assign subject to teacher
+         */
+        public int TeacherSubject1Id { get; set; }
+        public Subject Subject1
+        { 
+            get 
+            {
+                return (Subject)Subject1ComboBox.SelectedItem;
+            }
+            set 
+            { 
+                if (value != null)
+                {
+                    Subject1ComboBox.SelectedItem = value;
+                }
+                else
+                {
+                    Subject1ComboBox.SelectedIndex = 0;
+                }
+            }
+        }
+        public DateTime StartDateSubject1 
+        { 
+            get { return StartDateSubject1DtPck.Value; }
+            set { StartDateSubject1DtPck.Value = value; }
+        }
+        public DateTime EndDateSubject1
+        {
+            get { return EndDateSubject1DtPck.Value; }
+            set { EndDateSubject1DtPck.Value = value; }
+        }
+        public bool IsFinishedSubject1 
+        { 
+            get { return FinishedSubject1CheckBox.Checked; }
+            set
+            {
+                FinishedSubject1CheckBox.Checked = value;
+            }
+        }
+
+        public int TeacherSubject2Id { get; set; }
+        public Subject Subject2
+        {
+            get
+            {
+                return (Subject)Subject2ComboBox.SelectedItem;
+            }
+            set 
+            { 
+                if (value != null)
+                {
+                    Subject2ComboBox.SelectedItem = value;
+                }
+                else
+                {
+                    Subject2ComboBox.SelectedIndex = 0;
+                }
+            }
+        }
+        public DateTime StartDateSubject2
+        {
+            get { return StartDateSub2DtPck.Value; }
+            set { StartDateSub2DtPck.Value = value; }
+        }
+        public DateTime EndDateSubject2
+        {
+            get { return EndDateSub2DtPck.Value; }
+            set { EndDateSub2DtPck.Value = value; }
+        }
+        public bool IsFinishedSubject2
+        {
+            get { return FinishedSub2CheckBox.Checked; }
+            set
+            {
+                FinishedSub2CheckBox.Checked = value;
+            }
+        }
+        /*
+         * End Define view for assign subject to teacher
+         */
 
         /* Definition Event Handler related to Teacher Entity */
         public event EventHandler SearchTeacherEvent;
@@ -195,11 +344,73 @@ namespace EducationCenter
 
         /* Start Definition Event Handler related to assign Subject To Teachers */
         public event EventHandler AssignSubjectTabPageEvent;
+        public event EventHandler SaveSubject1Event;
+        public event EventHandler CancelSubject1Event;
+        public event EventHandler SaveSubject2Event;
+        public event EventHandler CancelSubject2Event;
         /* End Definition Event Handler related to assign Subject To Teachers */
 
         public void SetTeacherListBindingSource(BindingSource teacherList)
         {
             TeacherDGView.DataSource = teacherList;
+        }
+
+        public void SetTeachingSubjectListBindingSource(BindingSource teachingSubjectList)
+        {
+            TeachingSubjectsDataGridView.DataSource = teachingSubjectList;
+        }
+
+        public void SetTaughtSubjectListBindingSource(BindingSource taughtSubjectList)
+        {
+            TaughtSubjectsDataGridView.DataSource = taughtSubjectList;
+        }
+
+        public void SetSubjectListCombox1BindingSource(BindingSource subjectList)
+        {
+            Subject1ComboBox.DisplayMember = "Name";
+            Subject1ComboBox.ValueMember = "Id";
+            Subject1ComboBox.DataSource = subjectList;
+
+            if (isEditSub1)
+            {
+                Subject1ComboBox.Enabled = false;
+                if (!IsFinishedSubject1)
+                {
+                    TeachingSub1CheckedBox.Checked = true;
+                }
+                else
+                {
+                    TeachingSub1CheckedBox.Checked = false;
+                }
+            }
+            else
+            {
+                Subject1ComboBox.Enabled = true;
+            }
+        }
+
+        public void SetSubjectListCombox2BindingSource(BindingSource subjectList)
+        {
+            Subject2ComboBox.DisplayMember = "Name";
+            Subject2ComboBox.ValueMember = "Id";
+            Subject2ComboBox.DataSource = subjectList;
+
+            if (isEditSub2)
+            {
+                Subject2ComboBox.Enabled = false;
+                if (!IsFinishedSubject2)
+                {
+                    TeachingSub2CheckedBox.Checked = true;
+                }
+                else
+                {
+                    TeachingSub2CheckedBox.Checked = false;
+                }
+            }
+            else
+            {
+                Subject2ComboBox.Enabled = true;
+            }
         }
 
         //Singleton pattern (Open a single form instance)

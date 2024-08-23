@@ -1,4 +1,5 @@
-﻿using Helper.Enums;
+﻿using DataLayer.Entities.Subjects;
+using Helper.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,13 +30,37 @@ namespace EducationCenter.Views.Interfaces
         bool IsSuccessfull { get; set; }
         string Message { get; set; }
 
-        // Events
+        // Properties - Related to Assign Subjects to Teacher
+        int TeacherSubject1Id { get; set; }
+        Subject Subject1 { get; set; }
+        DateTime StartDateSubject1 { get; set; }
+        DateTime EndDateSubject1 { get; set; }
+        bool IsEditSubject1 { get; set; }
+        bool IsFinishedSubject1 { get; set; }
+        bool IsSuccessfullSub1 { get; set; }
+
+        int TeacherSubject2Id { get; set; }
+        Subject Subject2 { get; set; }
+        DateTime StartDateSubject2 { get; set; }
+        DateTime EndDateSubject2 { get; set; }
+        bool IsEditSubject2 { get; set; }
+        bool IsFinishedSubject2 { get; set; }
+        bool IsSuccessfullSub2 { get; set; }
+
+        // Events of Teacher Records
         event EventHandler SearchTeacherEvent;
         event EventHandler AddNewTeacherEvent;
         event EventHandler EditTeacherEvent;
         event EventHandler DeleteTeacherEvent;
         event EventHandler SaveTeacherEvent;
         event EventHandler CancelTeacherEvent;
+
+        // Events of Assigning subjects to Teacher
+        event EventHandler AssignSubjectTabPageEvent;
+        event EventHandler SaveSubject1Event;
+        event EventHandler CancelSubject1Event;
+        event EventHandler SaveSubject2Event;
+        event EventHandler CancelSubject2Event;
 
         /*
          * Assign Subjects to Teachers via event
@@ -46,6 +71,10 @@ namespace EducationCenter.Views.Interfaces
 
         // Methods
         void SetTeacherListBindingSource(BindingSource teacherList);
+        void SetSubjectListCombox1BindingSource(BindingSource subjectList);
+        void SetSubjectListCombox2BindingSource(BindingSource subjectList);
+        void SetTeachingSubjectListBindingSource(BindingSource teachingSubjectList);
+        void SetTaughtSubjectListBindingSource(BindingSource taughtSubjectList);
         void Show();
     }
 }
